@@ -20,7 +20,7 @@
     "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
     "react-image-gallery": "^1.2.11",
-    "react-js-pagination": "^3.0.3",
+    "react-js-pagination": "^3.0.2",
     "react-modal": "^3.16.1",
     "react-number-format": "^5.1.2",
     "react-range": "^1.8.14",

@@ -1,11 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 
-  experimental: {
-    runtime: 'edge',
-  },
   reactStrictMode: true,
   swcMinify: true,
+  experimental: { runtime: 'edge'},
   images: {
     domains : ['https://static-dev.infoimoveis.com.br'],
     dangerouslyAllowSVG: true,
