@@ -124,4 +124,4 @@ export async function getServerSideProps(context) {
       props: list, 
     }
 }
-// export const config = { runtime: 'experimental-edge'};
+

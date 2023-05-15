@@ -540,7 +540,7 @@ function handleShow(value) {
 
 export async function getServerSideProps(context) {
 
-  const {query} = context;
+  const { query } = context;
  
   const corpo = await JSON.stringify( {
     acoes: [                        
@@ -564,4 +564,3 @@ export async function getServerSideProps(context) {
     props: listImovel
   }
 }
-// export const config = { runtime: 'experimental-edge'};
