@@ -564,3 +564,4 @@ export async function getServerSideProps(context) {
     props: listImovel
   }
 }
+export const config = { experimental: { runtime: 'edge'}};
