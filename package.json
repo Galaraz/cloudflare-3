@@ -10,8 +10,26 @@
   },
   "dependencies": {
     "@cloudflare/next-on-pages": "^0.10.1",
+    "bootstrap": "^5.2.3",
+    "cors": "^2.8.5",
     "next": "13.4.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "next-api-middleware": "^2.0.1",
+    "query-string": "^7.1.1",
+    "rc-slider": "^10.1.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.0",
+    "react-dom": "^18.2.0",
+    "react-image-gallery": "^1.2.11",
+    "react-js-pagination": "^3.0.3",
+    "react-modal": "^3.16.1",
+    "react-number-format": "^5.1.2",
+    "react-range": "^1.8.14",
+    "react-redux": "^8.0.5",
+    "react-select": "^5.6.1",
+    "react-toastify": "^9.1.1",
+    "redux": "^4.2.0",
+    "select": "^1.1.2",
+    "sharp": "^0.31.3",
+    "styled-components": "^5.3.6"
   }
 }
