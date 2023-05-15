@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@cloudflare/next-on-pages": "^0.10.1",
+    "@cloudflare/next-on-pages": "^0.0.0-b33639f",
     "bootstrap": "^5.2.3",
     "cors": "^2.8.5",
     "next": "13.4.2",
