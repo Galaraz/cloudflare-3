@@ -7,9 +7,9 @@ export const config = {
 export default async  function getBusca(req,res) {
   // res.setHeader('Access-Control-Allow-Origin', '*');
 
-
-  let query = await req.text();
-    query = JSON.parse(query);
+ try {
+    let query = await req.text();
+      query = JSON.parse(query);
 
 // console.log(req , "somebody")
 
@@ -59,7 +59,7 @@ const corpo = JSON.stringify( {
     ], id: apiId
 });
 
-try {
+
   const response =  await fetch(
       apiUrl,
       {
