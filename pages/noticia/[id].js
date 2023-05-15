@@ -58,19 +58,6 @@ export default function Noticia(props) {
 
                 <div className="container noticia px-4 px-sm-0">        
                     
-                    {/* { pageSkeleton ? (
-                        <>
-                        <div className="pt-5 pb-4 border-bottom">
-                            <div className="font-12 opacity-75 pb-3"><Skeleton width={187} height={15} /></div>
-                            <h2 className="font-32 font-md-40 line-height-130 color-primary m-0 p-0"><Skeleton height={52} /></h2>
-                        </div>
-                        <div className="d-table w-100 pt-4 pb-5 font-16 line-height-160 opacity-75 texto">
-                            <div style={{ maxWidth: '500px' }}>
-                                <div style={{ paddingTop: '75%' }} className="w-100 skeleton-root"></div>
-                            </div>
-                        </div>
-                        </>
-                    ) : ( */}
                         <>
                         <div className="pt-5 pb-4 border-bottom">
                             <div className="font-12 opacity-75 pb-3">{ noticia.data }</div>
@@ -137,3 +124,4 @@ export async function getServerSideProps(context) {
       props: list, 
     }
   }
+  export const config = { runtime: 'edge' };
