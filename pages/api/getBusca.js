@@ -1,16 +1,16 @@
 const apiId              = "328";
 const apiUrl             = "https://dev.infoimoveis.com.br/webservice/hotsites.php";
 
-// export const config = {
-//   runtime: 'edge',
-//   }
+export const config = {
+  runtime: 'edge',
+  }
 export default async  function getBusca(req,res) {
-   res.setHeader('Access-Control-Allow-Origin', '*');
+  //  res.setHeader('Access-Control-Allow-Origin', '*');
 
  try {
-    // let query = await req.text();
-    let query = await req.body;
-      // query = JSON.parse(query);
+    //  let query = await req.body;
+     let query = await req.text();
+     query = JSON.parse(query);
 
 // console.log(req , "somebody")
 
@@ -73,13 +73,13 @@ const corpo = JSON.stringify( {
   
   const list = await response.json()
  
-  // return new Response(JSON.stringify(list));
-    res.status(200).json( list);
+   return new Response(JSON.stringify(list));
+    // res.status(200).json( list);
   
  
   } catch (error) {
-    // return new Response(JSON.stringify({erro:" erro na requisiçao"}));
-   res.status(400).json( {erro:" erro na requisiçao"} )
+     return new Response(JSON.stringify({erro:" erro na requisiçao"}));
+  //  res.status(400).json( {erro:" erro na requisiçao"} )
 }
 
 } 

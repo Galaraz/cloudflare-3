@@ -1,21 +1,19 @@
 const apiId              = "328";
 const apiUrl             = "https://dev.infoimoveis.com.br/webservice/hotsites.php";
 
-// export const config = {
-//   runtime: 'edge',
-//   }
+export const config = {
+  runtime: 'edge',
+  }
 export default async  function requisicoes (req,res) {
 
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // res.setHeader('Access-Control-Allow-Origin', '*');
 let reqFinalidade ="";
   try {
     
-
-    // let valor =  await req.text();
-    let valor =  await req.body;
-    // valor =JSON.parse(valor)
-    // console.log(re)
-     
+    // let valor =  await req.body;
+    let valor =  await req.text();
+    valor = JSON.parse(valor)
+        
     if (valor === "Aluguel de Temporada"|| valor === "Aluguel/Temporada"){
       reqFinalidade = 3;
     }else{
@@ -43,11 +41,11 @@ let reqFinalidade ="";
     );
     const list = await response.json()
     
-    // return new Response(JSON.stringify(list));
-    res.status(200).json( list )
+     return new Response(JSON.stringify(list));
+    // res.status(200).json( list )
 
   } catch (error) {
-    // return new Response(JSON.stringify({erro:" erro na requisiçao"}));
+     return new Response(JSON.stringify({erro:" erro na requisiçao"}));
   }
  
 
