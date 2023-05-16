@@ -12,7 +12,7 @@
     "@cloudflare/next-on-pages": "^0.0.0-b33639f",
     "bootstrap": "^5.2.3",
     "cors": "^2.8.5",
-    "next": "13.4.2",
+    "next": "13.0.0",
     "next-api-middleware": "^2.0.1",
     "query-string": "^7.1.1",
     "rc-slider": "^10.1.0",
