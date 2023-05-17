@@ -13,12 +13,7 @@ const nextConfig = {
       },
     ],
   },
-  api: {
-    bodyParser: {
-      sizeLimit: '1mb',
-    },
-    externalResolver: true,
-  },
+
 }
 
 module.exports = nextConfig
