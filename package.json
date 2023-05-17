@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@cloudflare/next-on-pages": "^0.0.0-b33639f",
     "bootstrap": "^5.2.3",
     "cors": "^2.8.5",
     "next": "13.4",
@@ -31,5 +30,8 @@
     "select": "^1.1.2",
     "sharp": "^0.31.3",
     "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "@cloudflare/next-on-pages": "^0.10.1"
   }
 }
