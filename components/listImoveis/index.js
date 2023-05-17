@@ -106,7 +106,7 @@ export default function ListImoveis(props) {
         switch (tipo) {
             case 'finalidade':
                 const response = await getValores(valor);
-                setValores({ ...valores,  valor_minimo: parseInt(response.valores.valor_minimo), valor_maximo: parseInt(response.valores.valor_maximo) })
+                setValores({ ...valores,  valor_minimo: parseInt(response.valor_minimo), valor_maximo: parseInt(response.valor_maximo) })
                 setFormulario({ ...formulario, ...{finalidade: valor, valorde: parseInt(response.valor_minimo), valorate: parseInt(response.valor_maximo),bairro:"",cidade:"",uf:"",tipo:""   } });
                 break;
             case 'tipo':
