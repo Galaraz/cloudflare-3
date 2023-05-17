@@ -13,49 +13,50 @@ import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,e
 export default function Imovel(props) {
   
     const { dadosimovel, destaques }  = props;
+    console.log(dadosimovel)
 
 return(
  <>
-    {dadosimovel}
+    
     <h1>ola meu chapaaa</h1>
 </>
 
 )
 }
-export async function getServerSideProps(req, res, params) {
+export async function getServerSideProps(req, res) {
 
-    // try {
-
-    // }
-    // catch(e) {
-    //     return {
-    //         notFound: true
-    //         }
-    //     } 
-
-//   const { query } = context;
-//   console.log(context);
- 
-  const corpo = await JSON.stringify( {
-    acoes: [                        
-      { metodo: "dadosimovel", params:  [{ registro: params.id  }] },
-      { metodo: "destaques", params: [ { resultados: "4" }] },
-    ], id: apiId
-  });
-  const resposta = await fetch(
-      apiUrl,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: corpo
+    try {
+        const query   = req.query;
+        const corpo = await JSON.stringify( {
+            acoes: [                        
+              { metodo: "dadosimovel", params:  [{ registro: query.id  }] },
+              { metodo: "destaques", params: [ { resultados: "4" }] },
+            ], id: apiId
+          });
+          const resposta = await fetch(
+              apiUrl,
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: corpo
+            }
+          
+          )
+          const listImovel = await resposta.json()
+        
+        return {
+            props: listImovel
+        }
     }
-  
-  )
-  const listImovel = await resposta.json()
+    catch(e) {
+        return {
+            notFound: true
+            }
+        } 
 
-  return {
-    props: listImovel
-  }
+
+ 
+
 }
 
 // export const config = { runtime: 'edge' };
