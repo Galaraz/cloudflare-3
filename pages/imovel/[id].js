@@ -12,7 +12,7 @@ import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,e
 
 export default function Imovel(props) {
   
-    const { dadosimovel, destaques }  = props;
+    // const { dadosimovel, destaques }  = props;
 
 return(
 
@@ -20,31 +20,31 @@ return(
 
 )
 }
-export async function getServerSideProps(context) {
+// export async function getServerSideProps(context) {
 
-  const { query } = context;
-  console.log(context);
+//   const { query } = context;
+//   console.log(context);
  
-  const corpo = await JSON.stringify( {
-    acoes: [                        
-      { metodo: "dadosimovel", params:  [{ registro: query.id }] },
-      { metodo: "destaques", params: [ { resultados: "4" }] },
-    ], id: apiId
-  });
-  const resposta = await fetch(
-      apiUrl,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: corpo
-    }
+//   const corpo = await JSON.stringify( {
+//     acoes: [                        
+//       { metodo: "dadosimovel", params:  [{ registro: query.id }] },
+//       { metodo: "destaques", params: [ { resultados: "4" }] },
+//     ], id: apiId
+//   });
+//   const resposta = await fetch(
+//       apiUrl,
+//     {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+//       body: corpo
+//     }
   
-  )
-  const listImovel = await resposta.json()
+//   )
+//   const listImovel = await resposta.json()
 
-  return {
-    props: listImovel
-  }
-}
+//   return {
+//     props: listImovel
+//   }
+// }
 
-export const config = { runtime: 'edge' };
+// export const config = { runtime: 'edge' };
