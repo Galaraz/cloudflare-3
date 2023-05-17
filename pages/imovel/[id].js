@@ -12,11 +12,13 @@ import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,e
 
 export default function Imovel(props) {
   
-    // const { dadosimovel, destaques }  = props;
+    const { dadosimovel, destaques }  = props;
 
 return(
-
-<h1>ola meu chapaaa</h1>
+ <>
+    {dadosimovel}
+    <h1>ola meu chapaaa</h1>
+</>
 
 )
 }
