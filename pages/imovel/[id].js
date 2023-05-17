@@ -20,31 +20,40 @@ return(
 
 )
 }
-// export async function getServerSideProps(context) {
+export async function getServerSideProps(req, res, params) {
+
+    // try {
+
+    // }
+    // catch(e) {
+    //     return {
+    //         notFound: true
+    //         }
+    //     } 
 
 //   const { query } = context;
 //   console.log(context);
  
-//   const corpo = await JSON.stringify( {
-//     acoes: [                        
-//       { metodo: "dadosimovel", params:  [{ registro: query.id }] },
-//       { metodo: "destaques", params: [ { resultados: "4" }] },
-//     ], id: apiId
-//   });
-//   const resposta = await fetch(
-//       apiUrl,
-//     {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-//       body: corpo
-//     }
+  const corpo = await JSON.stringify( {
+    acoes: [                        
+      { metodo: "dadosimovel", params:  [{ registro: params.id  }] },
+      { metodo: "destaques", params: [ { resultados: "4" }] },
+    ], id: apiId
+  });
+  const resposta = await fetch(
+      apiUrl,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: corpo
+    }
   
-//   )
-//   const listImovel = await resposta.json()
+  )
+  const listImovel = await resposta.json()
 
-//   return {
-//     props: listImovel
-//   }
-// }
+  return {
+    props: listImovel
+  }
+}
 
 // export const config = { runtime: 'edge' };
