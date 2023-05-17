@@ -1,62 +1,67 @@
-import { useState, useEffect, useRef, useContext  } from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-import ContentHeader from '../../components/ContentHeader'
-import { Modal } from 'react-bootstrap';
+import Link from "next/link";
 
-import ImageGallery from 'react-image-gallery';
-import { ToastContainer } from 'react-toastify';
-import { AuthContext } from '../../context';
-import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,existsOrError,IsEmail,isMobile,notify ,cloudflareLoader,scrollTopDist } from '../../utils';
-
-export default function Imovel(props) {
-  
-    // const { dadosimovel, destaques }  = props;
-    // console.log(dadosimovel)
-
-return(
- <>
-    
-    <h1>ola meu chapaaa</h1>
-</>
-
-)
+export default function Teste2({list}){
+    return (
+      <div style={{paddingTop: 30}}>
+        <Link href={"/"}
+          style={{
+            marginLeft: 10,
+            marginTop:30,
+            paddingTop: 10,
+            paddingBottom: 10,
+            paddingLeft:10,
+            paddingRight: 10,
+            backgroundColor: 'red',
+            borderRadius: 5
+          }}
+        >
+          Ir para pagina home
+        </Link>
+        <div style={{marginTop: 30}}>DADOS ANUNCIO 1722</div>
+        <div style={{marginTop: 30}}>{JSON.stringify(list)}</div>
+    </div>
+    )
 }
-// export async function getServerSideProps(req, res) {
-
-//     try {
-//         const query   = req.query;
-//         const corpo = await JSON.stringify( {
-//             acoes: [                        
-//               { metodo: "dadosimovel", params:  [{ registro: query.id  }] },
-//               { metodo: "destaques", params: [ { resultados: "4" }] },
-//             ], id: apiId
-//           });
-//           const resposta = await fetch(
-//               apiUrl,
-//             {
-//               method: 'POST',
-//               headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-//               body: corpo
-//             }
-          
-//           )
-//           const listImovel = await resposta.json()
-        
-//         return {
-//             props: listImovel
-//         }
-//     }
-//     catch(e) {
-//         return {
-//             notFound: true
-//             }
-//         } 
 
 
- 
+export async function getServerSideProps({ req, res, params }) {
+  try {
+    let corpo = JSON.stringify({
+      acoes: 
+        [
+          {
+            metodo: "dadosimovel",
+            params: { registro : params.id || 328 }
+          }   
+        ],
+      loja: 328
+    }) 
 
-// }
+    const response = await fetch("https://dev.infoimoveis.com.br/webservice/hotsites.php",{
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: corpo
+    })
+    
+    let list = await response.json()
+    return {    
+      props: {list}
+    }
 
-// export const config = { runtime: 'edge' };
+  } catch(e) {
+    return {
+      notFound: true
+    }
+  } 
+}
+  const response =  await fetch( "https://dev.infoimoveis.com.br/webservice/hotsites.php");
+  const list = await response.json()
+  if (!list) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
+  return { props: { list } }
