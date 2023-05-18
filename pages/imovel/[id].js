@@ -561,6 +561,7 @@ export async function getStaticProps(context) {
   const listImovel = await resposta.json()
 
   return {
+    revalidate: 7,
     props: listImovel
   }
 }
