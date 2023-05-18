@@ -37,7 +37,7 @@ const apiUrl             = "https://dev.infoimoveis.com.br/webservice/hotsites.p
     );
 
     const list = await response.json()
-        console.log(list ,"list veioo")
+        console.log(list ,"list veioo assim ")
 
     }
     
