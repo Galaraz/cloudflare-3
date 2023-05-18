@@ -549,7 +549,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  let url ="https://cloudflare-3.pages.dev/"
+ 
   const respId = context.params.id;
   const corpo = JSON.stringify({
     acoes: [
@@ -559,14 +559,16 @@ export async function getStaticProps(context) {
     id: apiId
   });
 
-  const resposta = await fetch(url, {
+  const resposta = await fetch(apiUrl, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: corpo
   });
 
-  const listImovel = await resposta.json();
-
+  const respostaText = await resposta.text();
+  console.log(respostaText); // Exibe a resposta da API no console antes do parsing para JSON
+  
+  const listImovel = JSON.parse(respostaText);
   return {
     props: listImovel
   };

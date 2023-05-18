@@ -22,7 +22,7 @@ export default function AuthProvider({children}){
    
     async function getDados (){
         setLoadingDados(true)
-        const response =  await fetch(`${urlSite}api/getDados`);
+         const response =  await fetch(`${urlSite}api/getDados`);
         // const response =  await fetch(`api/getDados`);
         
         
