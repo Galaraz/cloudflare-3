@@ -8,7 +8,7 @@ import Skeleton from '../components/skeleton';
 
 export default function Home(props) {
 
-return <div>{JSON.stringify(props.destaques)}</div>
+// return <div>{JSON.stringify(props.destaques)}</div>
   const { destaques, ultimasnoticias  } = props
   const [ pageSkeleton, setPageSkeleton ] = useState(true);
   const isOpen = false
@@ -151,7 +151,7 @@ return <div>{JSON.stringify(props.destaques)}</div>
                                   </div>
                                   
                                   <div className="endereco font-12 line-height-130">
-                                      <Image src="/svg/place.svg"  width={72} height={16} alt="place"   />
+                                      {/* <Image src="/svg/place.svg"  width={72} height={16} alt="place"   /> */}
                                       {`${dest.bairro} | ${dest.cidade}/${dest.uf}`}
                                   </div>
                                   
