@@ -2,7 +2,7 @@ import React,{useContext,useEffect} from 'react';
 import Link from 'next/link' ;
 import { AuthContext } from '../../context';
 import { useRouter } from 'next/router';
-
+const apiUrl             = "https://dev.infoimoveis.com.br/webservice/hotsites.php";
 
  const  ActiveLink = (  ) => {
     const { pathname } = useRouter();
@@ -20,8 +20,23 @@ import { useRouter } from 'next/router';
 
 
     async function getDados(){
-      const response =  await fetch(`api/getDados`);
-      const list = await response.json()
+      const corpo = JSON.stringify( {
+        acoes: [                        
+         	 { metodo : "finalidades" },
+          
+        ], id: apiId
+      });
+    const response =  await fetch(
+        apiUrl,
+        {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: corpo
+        }
+
+    );
+
+    const list = await response.json()
         console.log(list ,"list veioo")
 
     }
