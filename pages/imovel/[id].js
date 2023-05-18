@@ -11,8 +11,7 @@ import { AuthContext } from '../../context';
 import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,existsOrError,IsEmail,isMobile,notify ,cloudflareLoader,scrollTopDist } from '../../utils';
 
 export default function Imovel(props) {
-  
-    return <div>{JSON.stringify(props.dadosimovel)}</div>
+     
     const { dadosimovel, destaques }  = props;
     const idDinamico    = dadosimovel.id
     const { anunciante  } = useContext(AuthContext);
