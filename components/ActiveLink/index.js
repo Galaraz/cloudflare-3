@@ -8,39 +8,7 @@ const apiUrl             = "https://dev.infoimoveis.com.br/webservice/hotsites.p
     const { pathname } = useRouter();
     const { finalidades } = useContext(AuthContext);
     
-    if(!finalidades){
-
-      useEffect(() => {
-     
-        getDados();
-        
-       },[]);
-
-    }
-
-
-    async function getDados(){
-      const corpo = JSON.stringify( {
-        acoes: [                        
-         	 { metodo : "finalidades" },
-          
-        ], id: apiId
-      });
-    const response =  await fetch(
-        apiUrl,
-        {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: corpo
-        }
-
-    );
-
-    const list = await response.json()
-        console.log(list ,"list veioo assim ")
-
-    }
-    
+   
     const navLink = [
 
       {

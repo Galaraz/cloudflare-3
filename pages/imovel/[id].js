@@ -538,7 +538,7 @@ function handleShow(value) {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
   const { query } = context;
   console.log(context, "vendo se vem");
@@ -561,11 +561,10 @@ export async function getStaticProps(context) {
   const listImovel = await resposta.json()
 
   return {
-    revalidate: 7,
+    
     props: listImovel
   }
 }
-
 
 
 export const config = { runtime: 'experimental-edge' };
