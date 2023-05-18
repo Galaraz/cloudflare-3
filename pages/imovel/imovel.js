@@ -23,40 +23,39 @@ return(
 
 )
 }
-// export async function getServerSideProps(req, res) {
-
-//     try {
-//         const query   = req.query;
-//         const corpo = await JSON.stringify( {
-//             acoes: [                        
-//               { metodo: "dadosimovel", params:  [{ registro: query.id  }] },
-//               { metodo: "destaques", params: [ { resultados: "4" }] },
-//             ], id: apiId
-//           });
-//           const resposta = await fetch(
-//               apiUrl,
-//             {
-//               method: 'POST',
-//               headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-//               body: corpo
-//             }
-          
-//           )
-//           const listImovel = await resposta.json()
-        
-//         return {
-//             props: listImovel
-//         }
-//     }
-//     catch(e) {
-//         return {
-//             notFound: true
-//             }
-//         } 
-
-
- 
-
-// }
+export async function getStaticPaths() {
+    return {
+      fallback: true,
+      paths: [
+        {
+          params: { id: "411030" }
+        }
+      ]
+    };
+  }
+  
+  export async function getStaticProps(context) {
+    console.log("fez req")
+    const respId = context.params.id;
+    const corpo = JSON.stringify({
+      acoes: [
+        { metodo: "dadosimovel", params: [{ registro: respId }] },
+        { metodo: "destaques", params: [{ resultados: "4" }] }
+      ],
+      id: apiId
+    });
+  
+    const resposta = await fetch(apiUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: corpo
+    });
+  
+    const listImovel = await resposta.json();
+  
+    return {
+      props: listImovel
+    };
+  }
 
 

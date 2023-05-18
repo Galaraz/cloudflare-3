@@ -8,7 +8,7 @@ export default async  function requisicoes(req, res)  {
  
 
 
-//  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', '*');
     const corpo = JSON.stringify( {
         acoes: [                        
             { metodo : "dadosanunciante" },		

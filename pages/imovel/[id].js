@@ -2,13 +2,13 @@ import { useState, useEffect, useRef, useContext  } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import ContentHeader from '../../components/ContentHeader'
+import ContentHeader from '../components/ContentHeader'
 import { Modal } from 'react-bootstrap';
 
 import ImageGallery from 'react-image-gallery';
 import { ToastContainer } from 'react-toastify';
-import { AuthContext } from '../../context';
-import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,existsOrError,IsEmail,isMobile,notify ,cloudflareLoader,scrollTopDist } from '../../utils';
+import { AuthContext } from '../context';
+import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,existsOrError,IsEmail,isMobile,notify ,cloudflareLoader,scrollTopDist } from '../utils';
 
 export default function Imovel(props) {
   
@@ -572,33 +572,33 @@ export async function getStaticProps(context) {
 }
 
 
-// export async function getServerSideProps(context) {
+export async function getServerSideProps(context) {
 
-//   const { query } = context;
-//   console.log(context, "vendo se vem");
+  const { query } = context;
+  console.log(context, "vendo se vem");
  
-//   const corpo = await JSON.stringify( {
-//     acoes: [                        
-//       { metodo: "dadosimovel", params:  [{ registro: query.id }] },
-//       { metodo: "destaques", params: [ { resultados: "4" }] },
-//     ], id: apiId
-//   });
-//   const resposta = await fetch(
-//       apiUrl,
-//     {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-//       body: corpo
-//     }
+  const corpo = await JSON.stringify( {
+    acoes: [                        
+      { metodo: "dadosimovel", params:  [{ registro: query.id }] },
+      { metodo: "destaques", params: [ { resultados: "4" }] },
+    ], id: apiId
+  });
+  const resposta = await fetch(
+      apiUrl,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: corpo
+    }
   
-//   )
-//   const listImovel = await resposta.json()
+  )
+  const listImovel = await resposta.json()
 
-//   return {
+  return {
     
-//     props: listImovel
-//   }
-// }
+    props: listImovel
+  }
+}
 
 
-export const config = { runtime: 'edge' };
+export const config = { runtime: 'experimental-edge' };
