@@ -8,7 +8,7 @@ import Skeleton from '../components/skeleton';
 
 export default function Home(props) {
 
-
+return <div>{JSON.stringify(props.destaques)}</div>
   const { destaques, ultimasnoticias  } = props
   const [ pageSkeleton, setPageSkeleton ] = useState(true);
   const isOpen = false

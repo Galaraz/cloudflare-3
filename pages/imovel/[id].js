@@ -12,6 +12,7 @@ import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,e
 
 export default function Imovel(props) {
   
+    return <div>{JSON.stringify(props.dadosimovel)}</div>
     const { dadosimovel, destaques }  = props;
     const idDinamico    = dadosimovel.id
     const { anunciante  } = useContext(AuthContext);
