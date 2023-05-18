@@ -1,9 +1,9 @@
 const apiId              = "328";
 const apiUrl             = "https://dev.infoimoveis.com.br/webservice/hotsites.php";
 
-export const config = {
-    runtime: 'edge',
-    }
+// export const config = {
+//     runtime: 'edge',
+//     }
 export default async  function requisicoes(req, res)  {     
  
 
@@ -31,7 +31,7 @@ export default async  function requisicoes(req, res)  {
 
     const list = await response.json()
    
-    //  res.status(200).json( list )
-     return new Response(JSON.stringify(list));
+      res.status(200).json( list )
+    //  return new Response(JSON.stringify(list));
 
 } 
