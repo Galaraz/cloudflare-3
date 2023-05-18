@@ -31,15 +31,11 @@ export async function getServerSideProps({ req, res, params }) {
     });
 
     let list = await response.json();
-    return {
-      props: { list }
-    };
+    return new Response(JSON.stringify(list));
 
   } catch (e) {
-    return {
-      notFound: true
-    };
+    return new Response(JSON.stringify("sem resultados"));
   }
 }
 
-export const config = { runtime: 'experimental-edge' };
+export const config = { runtime: 'edge' };
