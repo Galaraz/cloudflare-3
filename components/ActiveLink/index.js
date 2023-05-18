@@ -1,12 +1,30 @@
-import React,{useContext} from 'react';
+import React,{useContext,useEffect} from 'react';
 import Link from 'next/link' ;
 import { AuthContext } from '../../context';
 import { useRouter } from 'next/router';
 
+
  const  ActiveLink = (  ) => {
     const { pathname } = useRouter();
     const { finalidades } = useContext(AuthContext);
+    
+    if(!finalidades){
+
+      useEffect(() => {
+     
+        getDados();
         
+       },[]);
+
+    }
+
+
+    async function getDados(){
+      const response =  await fetch(`api/getDados`);
+      const list = await response.json()
+        console.log(list ,"list veioo")
+
+    }
     
     const navLink = [
 

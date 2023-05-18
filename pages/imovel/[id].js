@@ -1,9 +1,9 @@
 import Link from "next/link";
-import Header from "../../components/Header";
+
 export default function Teste2({ list }) {
   return (
     <>
-    <Header/>
+    
     <div style={{ paddingTop: 30 }}>
       <Link href={"/"} style={{ marginLeft: 10, marginTop: 30, paddingTop: 10, paddingBottom: 10, paddingLeft: 10, paddingRight: 10, backgroundColor: 'red', borderRadius: 5 }}>
         Ir para a página home
