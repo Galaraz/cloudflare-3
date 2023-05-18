@@ -538,33 +538,68 @@ function handleShow(value) {
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticPaths() {
+  return {
+    fallback: true,
+    paths: [
+      {
+        params: { id: "411030" }
+      }
+    ]
+  };
+}
 
-  const { query } = context;
-  console.log(context, "vendo se vem");
- 
-  const corpo = await JSON.stringify( {
-    acoes: [                        
-      { metodo: "dadosimovel", params:  [{ registro: query.id }] },
-      { metodo: "destaques", params: [ { resultados: "4" }] },
-    ], id: apiId
+export async function getStaticProps(context) {
+  const respId = context.params.id;
+  const corpo = JSON.stringify({
+    acoes: [
+      { metodo: "dadosimovel", params: [{ registro: respId }] },
+      { metodo: "destaques", params: [{ resultados: "4" }] }
+    ],
+    id: apiId
   });
-  const resposta = await fetch(
-      apiUrl,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: corpo
-    }
-  
-  )
-  const listImovel = await resposta.json()
+
+  const resposta = await fetch(apiUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: corpo
+  });
+
+  const listImovel = await resposta.json();
 
   return {
-    
     props: listImovel
-  }
+  };
 }
 
 
-export const config = { runtime: 'experimental-edge' };
+// export async function getServerSideProps(context) {
+
+//   const { query } = context;
+//   console.log(context, "vendo se vem");
+ 
+//   const corpo = await JSON.stringify( {
+//     acoes: [                        
+//       { metodo: "dadosimovel", params:  [{ registro: query.id }] },
+//       { metodo: "destaques", params: [ { resultados: "4" }] },
+//     ], id: apiId
+//   });
+//   const resposta = await fetch(
+//       apiUrl,
+//     {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+//       body: corpo
+//     }
+  
+//   )
+//   const listImovel = await resposta.json()
+
+//   return {
+    
+//     props: listImovel
+//   }
+// }
+
+
+// export const config = { runtime: 'experimental-edge' };
