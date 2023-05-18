@@ -601,4 +601,4 @@ export async function getStaticProps(context) {
 // }
 
 
-export const config = { runtime: 'experimental-edge' };
+export const config = { runtime: 'edge' };
