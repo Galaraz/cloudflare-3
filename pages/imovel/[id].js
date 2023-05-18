@@ -14,7 +14,7 @@ export default function Imovel(props) {
   
     const { dadosimovel, destaques }  = props;
     const idDinamico    = dadosimovel.id
-    const { anunciante  } = useContext(AuthContext);
+    // const { anunciante  } = useContext(AuthContext);
     const [ isOpen , setOpen ] = useState(false);
     const [ showProposta, setShowProposta ] = useState(false);
     const [ showTelefones, setShowTelefones ] = useState(false);
@@ -417,9 +417,9 @@ function handleShow(value) {
         <div className={`${isOpen ? 'open ' : ''}d-flex d-md-none justify-content-center nav-bottom${showScrollTop ? ' show' : ''}`}>
             <div className="pb-4">
                 
-                { (Object.keys(anunciante).length > 0 && Object.keys(anunciante).includes('telefones')) && (
+                {/* { (Object.keys(anunciante).length > 0 && Object.keys(anunciante).includes('telefones')) && (
                     <button type="button" onClick={() => handleShow('telefones')} className="btn-telefone  border-0 mx-2">Telefones</button>
-                ) }                    
+                ) }                     */}
                 <button type="button" onClick={() => handleShow('proposta')} className="btn-proposta btn-primary border-0 mx-2">Enviar Proposta</button>
             </div>                
         </div>
@@ -429,7 +429,7 @@ function handleShow(value) {
                 <h2 className="font-24 mb-3 p-0">Telefones</h2> 
                 <div className="lista-telefones"> 
                     
-                    { (Object.keys(anunciante).length > 0 && Object.keys(anunciante).includes('telefones')) && anunciante.telefones.map((tel, index) => (
+                    {/* { (Object.keys(anunciante).length > 0 && Object.keys(anunciante).includes('telefones')) && anunciante.telefones.map((tel, index) => (
                         <>
                             <a href={tel.app !== '0' ? `https://api.whatsapp.com/send?l=pt-BR&amp;phone=55${tel.ddd}${tel.numero.replace('-','')}&text=Oi,%20vim%20pelo%20seu%20site!` : `tel:0${tel.ddd}${tel.numero.replace('-','')}`} key={index} className={`${tel.app !== '0' ? 'whats ' : ''}d-block border p-3 my-4`} rel="noopener noreferrer nofollow" target="_blank"><span style={{color:'#666'}}>{ `(${tel.ddd}) ${tel.numero}`}</span>
                             {tel.app !== '0' ?
@@ -438,7 +438,7 @@ function handleShow(value) {
                              }
                             </a>
                         </>
-                    ))}
+                    ))} */}
 
                 </div>
                                                                     
@@ -541,7 +541,7 @@ function handleShow(value) {
 export async function getStaticProps(context) {
 
   const { query } = context;
-  console.log(context);
+  console.log(context, "vendo se vem");
  
   const corpo = await JSON.stringify( {
     acoes: [                        
