@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import ContentHeade from '../../components/ContentHeader';
-import { apiUrl,  apiId, urlImgs, urlSite, titleSite, urlFavicon } from '../../utils';
+import { apiUrl,  apiId, urlImgs, urlSite, titleSite, urlFavicon,cloudflareLoader } from '../../utils';
 
 export default function Noticia(props) {    
 
@@ -68,7 +68,7 @@ export default function Noticia(props) {
                             
                             { noticia.imagem && ( 
                                 <div className=" float-md-left mr-0 mr-md-4 mb-4 opacity-75 noticiaOrganizada">
-                                    <Image className="mx-auto mx-md-0" src={`${urlImgs}/${noticia.imagem}`} alt={noticia.titulo}  width="300" height="300"/> 
+                                    <Image className="mx-auto mx-md-0" src={noticia.imagem} loader={cloudflareLoader} alt={noticia.titulo}  width="300" height="300"/> 
                                     <span className="d-block font-12 font-italic pt-1 text-center">{ noticia.fonte }</span>
                                 </div> 
                             ) }
