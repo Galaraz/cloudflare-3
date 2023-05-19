@@ -49,7 +49,7 @@ export default function CardBusca(props){
     async function SetValores(){
            let valor=""
            let response = await getValores(valor);
-           return  setValores ( { ...valores, ...{ valor_minimo: parseInt(response.valor_minimo), valor_maximo: parseInt(response.valor_maximo)} });
+           return  setValores ( { ...valores, ...{ valor_minimo: parseInt(response.valores.valor_minimo), valor_maximo: parseInt(response.valores.valor_maximo)} });
     }
         useEffect(() => {
         
@@ -64,8 +64,9 @@ export default function CardBusca(props){
    
         if (tipo === 'finalidade') {
             let response = await getValores(valor);
-            setValores({ ...valores,  valor_minimo: parseInt(response.valor_minimo), valor_maximo: parseInt(response.valor_maximo) })
-            return  setFormulario ( { ...formulario, finalidade: valor, valorde: parseInt(response.valor_minimo), valorate: parseInt(response.valor_maximo) });
+            console.log("pegando valor", response);
+            setValores({ ...valores,  valor_minimo: parseInt(response.valores.valor_minimo), valor_maximo: parseInt(response.valores.valor_maximo) })
+            return  setFormulario ( { ...formulario, finalidade: valor, valorde: parseInt(response.valores.valor_minimo), valorate: parseInt(response.valores.valor_maximo) });
        
         } else if (tipo === 'tipo') {
             return setFormulario({ ...formulario, tipo: valor });

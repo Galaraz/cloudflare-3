@@ -2,7 +2,8 @@
 const apiId              = "328";
 const apiUrl             = "https://dev.infoimoveis.com.br/webservice/hotsites.php";
 const urlImgs            = "https://static-dev.infoimoveis.com.br";
-const urlSite            = "https://cloudflare-3.pages.dev/";  
+// const urlSite            = "https://cloudflare-3.pages.dev/";
+const urlSite            = "http://localhost:3000/";    
 const urlFavicon         = urlSite+"favicon/"; 
 const urlFacebook        = "";
 const urlInstagram       = "";

@@ -12,7 +12,9 @@ let reqFinalidade ="";
     
     // let valor =  await req.body;
     let valor =  await req.text();
-    valor = JSON.parse(valor)
+
+    
+    // valor = JSON.parse(valor)
         
     if (valor === "Aluguel de Temporada"|| valor === "Aluguel/Temporada"){
       reqFinalidade = 3;
@@ -40,15 +42,16 @@ let reqFinalidade ="";
     
     );
     const list = await response.json()
-    
+   
      return new Response(JSON.stringify(list));
     // res.status(200).json( list )
 
   } catch (error) {
+    
      return new Response(JSON.stringify({erro:" erro na requisiçao"}));
+     
   }
  
-
         
 
 } 
