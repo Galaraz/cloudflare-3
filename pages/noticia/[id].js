@@ -85,9 +85,7 @@ export default function Noticia(props) {
 
                         </div>
                         </>
-                   
-
-                          
+              
 
                 </div>    
 
