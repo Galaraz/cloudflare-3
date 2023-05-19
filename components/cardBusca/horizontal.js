@@ -42,7 +42,7 @@ export default function CardBusca(props) {
       loading,
     } = props;
     const { valor_minimo, valor_maximo } = valores;
- 
+    console.log(valores)
 
   return (
     
@@ -124,6 +124,7 @@ export default function CardBusca(props) {
             VALOR DESEJADO
           </label>
           <div>
+            
             <Range
               min={parseInt(valor_minimo)}
               max={parseInt(valor_maximo)}
@@ -163,8 +164,10 @@ export default function CardBusca(props) {
                 />
             )}/>
 
+
+
             <div className="d-flex justify-content-between font-12 pt-3 pb-1 text-center">
-            
+        
                 <div>
                   R$ {moneyFormatter(formulario.valorde || valor_minimo || 0)}
                 </div>
@@ -172,6 +175,8 @@ export default function CardBusca(props) {
                 <div>
                   R$ {moneyFormatter(formulario.valorate || valor_maximo || 0)}
                 </div>
+   
+                
            
             </div>
           </div>

@@ -8,7 +8,7 @@ import { Range } from 'react-range';
 // import { buscaCidades, buscaBairros, getValores, existsOrError ,moneyFormatter,utils } from '../../utils';
 import Image from 'next/image';
 
-import CardBusca from '../cardBusca/vertical';
+import CardBusca from '../cardBusca';
 
 
 
@@ -37,7 +37,7 @@ export default function ContentHeader(props) {
         </div>
         <Modal className="modal-style" centered show={show} onHide={handleClose}>          
             <Modal.Body className="p-4">          
-                <CardBusca  show={show} formulario={props.formulario} callbackclose={handleClose}/>                                               
+                <CardBusca  show={show}  callbackclose={handleClose}/>                                               
             </Modal.Body>
         </Modal>
 

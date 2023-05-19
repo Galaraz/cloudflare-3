@@ -3,7 +3,8 @@ import ListImoveis from '../../components/listImoveis';
 import Head from "next/head";
 import { urlFavicon,descriptionDefault,titleSite,urlSite } from "../../utils";
 import { useRouter } from "next/router";
-export default function Temporada( ) {
+export default function Temporada({list}) {
+    const { busca } = list
     const router = useRouter();
     return (
         <>
@@ -35,8 +36,34 @@ export default function Temporada( ) {
                 <meta name="og:image:height" property="og:image:height" content="300" />
                 <title>Aluguel de Temporada | { titleSite }</title>
             </Head>
-            <ListImoveis finalidadePagina={'Aluguel de Temporada'}  />
+            <ListImoveis data={busca} finalidadePagina={'Aluguel de Temporada'} finalidadeId={3} />
             
         </>
     )
+}
+
+export async function getServerSideProps({ req, res, query }) {
+    try {
+      let body = JSON.stringify({
+        acoes: [                        
+          { metodo: "busca", params: [ { resultados: 12, ...query, ...{ finalidade : 3 } }] },
+        ], id: 328
+      }) 
+  
+      const response = await fetch("https://dev.infoimoveis.com.br/webservice/hotsites.php",{
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
+      
+      let list = await response.json()
+      return {    
+        props: { list }
+      }
+  
+    } catch(e) {
+      return {
+        notFound: true
+      }
+    } 
 }

@@ -27,7 +27,7 @@ export default function AuthProvider({children}){
         
         
         const list = await response.json()
-        console.log(list ,"list veioo")
+        
         Object.keys(list).includes('anunciante') && setAnunciante(list.anunciante)
         Object.keys(list).includes('finalidades') && setFinalidades(list.finalidades.map( (item) => {return item.label} ))
         Object.keys(list).includes('estados')&& setEstados(list.estados);

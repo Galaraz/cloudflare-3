@@ -64,7 +64,6 @@ export default function CardBusca(props){
    
         if (tipo === 'finalidade') {
             let response = await getValores(valor);
-            console.log("pegando valor", response);
             setValores({ ...valores,  valor_minimo: parseInt(response.valores.valor_minimo), valor_maximo: parseInt(response.valores.valor_maximo) })
             return  setFormulario ( { ...formulario, finalidade: valor, valorde: parseInt(response.valores.valor_minimo), valorate: parseInt(response.valores.valor_maximo) });
        

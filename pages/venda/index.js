@@ -3,7 +3,8 @@ import ListImoveis from '../../components/listImoveis';
 import Head from "next/head";
 import { urlFavicon,descriptionDefault,titleSite,urlSite } from "../../utils";
 import { useRouter } from "next/router";
-export default function Venda( ) {
+export default function Venda({list}) {
+    const { busca } = list
     const router = useRouter();
     return (
         <>
@@ -36,8 +37,33 @@ export default function Venda( ) {
                 <meta property="og:type" content="website" />
                 <title key={`Venda | ${titleSite}`}>Venda | { titleSite }</title>
             </Head>
-            <ListImoveis finalidadePagina={'Venda'}/>
+            <ListImoveis data={busca} finalidadePagina={'Venda'} finalidadeId={2}/>
         </>
     )
 }
 
+export async function getServerSideProps({ req, res, query }) {
+    try {
+      let body = JSON.stringify({
+        acoes: [                        
+          { metodo: "busca", params: [ { resultados: 12, ...query, ...{ finalidade : 2} }] },
+        ], id: 328
+      }) 
+  
+      const response = await fetch("https://dev.infoimoveis.com.br/webservice/hotsites.php",{
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
+      
+      let list = await response.json()
+      return {    
+        props: { list }
+      }
+  
+    } catch(e) {
+      return {
+        notFound: true
+      }
+    } 
+}
