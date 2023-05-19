@@ -2,10 +2,7 @@
 const nextConfig = {
 
   reactStrictMode: true,
-  experimental: {
-    runtime: "edge",
-    
- },
+
   
   swcMinify: true,
   images: {
