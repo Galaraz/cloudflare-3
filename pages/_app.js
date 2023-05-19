@@ -9,9 +9,9 @@ import Footer from '../components/Footer';
 export default function App({ Component, pageProps }) {
   return (
     <AuthProvider>
-      <Header />
+      
       <Component {...pageProps} />
-      <Footer />
+      
     </AuthProvider>
   )
 }
