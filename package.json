@@ -32,6 +32,6 @@
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^0.10.1"
+    "@cloudflare/next-on-pages": "^1.0.0"
   }
 }
