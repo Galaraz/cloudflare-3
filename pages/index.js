@@ -105,7 +105,7 @@ export default function Home({list}) {
                                   </div>
                                   
                                   <div className="endereco font-12 line-height-130">
-                                      <Image src="/svg/place.svg"  width={72} height={16} alt="place"   />
+                                      <Image src="/svg/place.svg" loader={cloudflareLoader} width={72} height={16} alt="place"   />
                                       {`${dest.bairro} | ${dest.cidade}/${dest.uf}`}
                                   </div>
                                   
