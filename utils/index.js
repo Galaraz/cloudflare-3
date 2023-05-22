@@ -90,22 +90,22 @@ const moneyFormatter = (valor) => {
 }
 
 function removerSpecials(texto) {
-    texto = texto.replace(/\s/g, '');
-    texto = texto.replace(/[ÀÁÂÃÄÅ]/,"A");
-    texto = texto.replace(/[àáâãäå]/,"a");
-    texto = texto.replace(/[ÈÉÊË]/,"E");
-    texto = texto.replace(/[éèêë]/,"e");
-    texto = texto.replace(/[ÍÎÌÏĮĪ]/,"I");
-    texto = texto.replace(/[íîìïįī]/,"i");
-    texto = texto.replace(/[ÓÕÔÒºÖŒØŌ]/,"O");
-    texto = texto.replace(/[óõôòºöœøō]/,"o");
-    texto = texto.replace(/[úüùûū]/,"u");
-    texto = texto.replace(/[ÚÜÙÛŪ]/,"U");
-    texto = texto.replace(/[Ç]/,"C");
-    texto = texto.replace(/[ç]/,"c");
-    texto = texto.replace("/", "-");
+    texto = texto.replace(/\s+/g, '-');
+    texto = texto.replace(/[ÀÁÂÃÄÅ]/g,"A");
+    texto = texto.replace(/[àáâãäå]/g,"a");
+    texto = texto.replace(/[ÈÉÊË]/g,"E");
+    texto = texto.replace(/[éèêë]/g,"e");
+    texto = texto.replace(/[ÍÎÌÏĮĪ]/g,"I");
+    texto = texto.replace(/[íîìïįī]/g,"i");
+    texto = texto.replace(/[ÓÕÔÒºÖŒØŌ]/g,"O");
+    texto = texto.replace(/[óõôòºöœøō]/g,"o");
+    texto = texto.replace(/[úüùûū]/g,"u");
+    texto = texto.replace(/[ÚÜÙÛŪ]/g,"U");
+    texto = texto.replace(/[Ç]/g,"C");
+    texto = texto.replace(/[ç]/g,"c");
+    texto = texto.replace(/\//g, "-");
     return texto.toLowerCase();
-    }
+  }
 const existsOrError = (value) => {
     if(!value) return false;
     if(Array.isArray(value) && value.length === 0) return false;
