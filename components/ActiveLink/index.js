@@ -2,7 +2,6 @@ import React,{useContext,useEffect} from 'react';
 import Link from 'next/link' ;
 import { AuthContext } from '../../context';
 import { useRouter } from 'next/router';
-const apiUrl             = "https://dev.infoimoveis.com.br/webservice/hotsites.php";
 
  const  ActiveLink = (  ) => {
     const { pathname } = useRouter();
