@@ -6,7 +6,7 @@ import ContentHeader from '../ContentHeader';
 import Place from '../../public/svg/place.svg';
 import CardBusca from '../cardBusca/';
 import { AuthContext } from '../../context';
-import { moneyFormatter, itensPorPagina, loaderImage,cloudflareLoader, handleRequest  } from '../../utils';
+import { moneyFormatter, itensPorPagina, loaderImage,cloudflareLoader, handleRequest,removerSpecials  } from '../../utils';
 import { getValores, utils } from '../../utils';
 import { useRouter } from 'next/router';
 import Select from "react-select";
@@ -71,7 +71,7 @@ export default function ListImoveis(props) {
                             {  imoveis?.map(imovel => {
                                 return (
                                     <div key={imovel.id} className="col-12 col-md-6 col-xl-3 py-4">
-                                        <Link href={`/imovel/${imovel.id}`} className="d-flex flex-column shadow h-100 item-grid">
+                                        <Link href={`/imovel/${removerSpecials(imovel.finalidade)}-${removerSpecials(imovel.tipo)}-${removerSpecials(imovel.bairro)}/${imovel.id}`} className="d-flex flex-column shadow h-100 item-grid">
                                         
                                             <div className="foto position-relative">
                                                                                        
