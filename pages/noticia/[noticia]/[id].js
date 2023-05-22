@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import ContentHeade from '../../components/ContentHeader';
-import { apiUrl,  apiId, urlImgs, urlSite, titleSite, urlFavicon,cloudflareLoader } from '../../utils';
+import ContentHeade from '../../../components/ContentHeader';
+import { apiUrl,  apiId, urlImgs, urlSite, titleSite, urlFavicon,cloudflareLoader } from '../../../utils';
 
 export default function Noticia(props) {    
 
@@ -100,6 +100,8 @@ export default function Noticia(props) {
 export async function getServerSideProps(context) {
   const {query} = context;
    
+  console.log(context)
+ 
     const corpo = await JSON.stringify( {
       acoes: [                        
         { metodo: "noticia", params:  [{ registro: query.id }] },

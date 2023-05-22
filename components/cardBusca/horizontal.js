@@ -42,7 +42,7 @@ export default function CardBusca(props) {
       loading,
     } = props;
     const { valor_minimo, valor_maximo } = valores;
-    console.log(valores)
+   
 
   return (
     

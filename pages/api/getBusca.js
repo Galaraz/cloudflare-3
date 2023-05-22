@@ -12,7 +12,7 @@ export default async  function getBusca(req,res) {
      let query = await req.text();
      query = JSON.parse(query);
 
-// console.log(req , "somebody")
+
 
 let dadosBusca ={};
 

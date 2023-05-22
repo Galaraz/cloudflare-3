@@ -101,7 +101,7 @@ export default function CardBusca(props){
     }
     const getBairros = async (id = "") => {
         const req = await handleRequest("bairros",  [{ registro : id }])
-        console.log(req)
+       
         if(!req.bairros) return
         setBairros(req.bairros)
     }

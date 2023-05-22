@@ -2,13 +2,13 @@ import { useState, useEffect, useRef, useContext  } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import ContentHeader from '../../components/ContentHeader';
+import ContentHeader from '../../../components/ContentHeader';
 import { Modal } from 'react-bootstrap';
 
 import ImageGallery from 'react-image-gallery';
 import { ToastContainer } from 'react-toastify';
-import { AuthContext } from '../../context';
-import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,existsOrError,IsEmail,isMobile,notify ,cloudflareLoader,scrollTopDist } from '../../utils';
+import { AuthContext } from '../../../context';
+import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,existsOrError,IsEmail,isMobile,notify ,cloudflareLoader,scrollTopDist } from '../../../utils';
 
 export default function Imovel(props) {
      
@@ -566,7 +566,7 @@ function handleShow(value) {
 //   });
 
 //   const respostaText = await resposta.text();
-//   console.log(respostaText); 
+//   
   
 //   const listImovel = JSON.parse(respostaText);
 //   return {
@@ -578,7 +578,7 @@ function handleShow(value) {
 export async function getServerSideProps(context) {
 
   const { query } = context;
-  console.log(context, "vendo se vem");
+
  
   const corpo = await JSON.stringify( {
     acoes: [                        

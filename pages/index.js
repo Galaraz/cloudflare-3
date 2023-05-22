@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Head from 'next/head';
 import Image from 'next/image'
-import {  moneyFormatter, cloudflareLoader, titleSite, urlFavicon, descriptionDefault, urlSite, apiId, apiUrl } from '../utils';
+import {  moneyFormatter, cloudflareLoader, titleSite, urlFavicon, descriptionDefault, urlSite, removerSpecials } from '../utils';
 import Link from 'next/link';
 import CardBusca from '../components/cardBusca';
 
@@ -79,7 +79,7 @@ export default function Home({list}) {
                 { destaques?.map(dest => (
                       
                       <div key={dest.id} className="col-12 col-md-6 col-xl-3 py-3 py-xl-0">
-                          <Link href={`/imovel/${dest.id}`} className="d-flex flex-column shadow h-100 item-grid" >                                
+                          <Link href={`/imovel/${removerSpecials(dest.tipo)}/${dest.id}`} className="d-flex flex-column shadow h-100 item-grid" >                                
                               <div className="foto position-relative"><Image src={dest.imagem} loader={cloudflareLoader} width={300} height={50}  alt={dest.tipo}  /></div>
                               <div className="d-flex flex-grow-1 flex-column px-3 py-3">
                                   
@@ -104,9 +104,11 @@ export default function Home({list}) {
                                       </div>
                                   </div>
                                   
-                                  <div className="endereco font-12 line-height-130">
-                                      <Image src="/svg/place.svg" loader={cloudflareLoader} width={72} height={16} alt="place"   />
+                                  <div className="endereco font-12 line-height-130 place">
+                                  <Image src="/svg/place.svg" loader={cloudflareLoader} width={72} height={16} alt="place"   />
                                       {`${dest.bairro} | ${dest.cidade}/${dest.uf}`}
+                                     
+                                    
                                   </div>
                                   
                               </div>                                
@@ -126,7 +128,7 @@ export default function Home({list}) {
                 { ultimasnoticias?.map(noti => (
                       <div key={noti.id} className="col-12 col-md-6 col-xl-3 py-3 py-xl-0">
   
-                          <Link href={`/noticia/${noti.id}`} className="d-flex flex-column shadow h-100 item-grid-noticia">                                
+                          <Link href={`/noticia/${removerSpecials(noti.titulo)}/${noti.id}`} className="d-flex flex-column shadow h-100 item-grid-noticia">                                
                               <div className="foto"><Image src={noti.imagem} loader={cloudflareLoader} width={300} height={50} alt={noti.titulo} blurDataURL="URL" placeholder="blur" /></div>
                               <div className="d-flex flex-grow-1 flex-column px-3 py-3">                                            
                                   <div className="flex-grow-1"><h2 className="font-14 line-height-130 tituloNoticia  m-0">{noti.titulo}</h2></div>

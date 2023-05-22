@@ -89,6 +89,23 @@ const moneyFormatter = (valor) => {
     return parseFloat(valor).toFixed(2).replace('.',',').replace(/(\d)(?=(\d{3})+\,)/g, '$1.');
 }
 
+function removerSpecials(texto) {
+    texto = texto.replace(/\s/g, '');
+    texto = texto.replace(/[ÀÁÂÃÄÅ]/,"A");
+    texto = texto.replace(/[àáâãäå]/,"a");
+    texto = texto.replace(/[ÈÉÊË]/,"E");
+    texto = texto.replace(/[éèêë]/,"e");
+    texto = texto.replace(/[ÍÎÌÏĮĪ]/,"I");
+    texto = texto.replace(/[íîìïįī]/,"i");
+    texto = texto.replace(/[ÓÕÔÒºÖŒØŌ]/,"O");
+    texto = texto.replace(/[óõôòºöœøō]/,"o");
+    texto = texto.replace(/[úüùûū]/,"u");
+    texto = texto.replace(/[ÚÜÙÛŪ]/,"U");
+    texto = texto.replace(/[Ç]/,"C");
+    texto = texto.replace(/[ç]/,"c");
+    texto = texto.replace("/", "-");
+    return texto.toLowerCase();
+    }
 const existsOrError = (value) => {
     if(!value) return false;
     if(Array.isArray(value) && value.length === 0) return false;
@@ -235,5 +252,6 @@ export {
     urlFavicon,
     urlFacebook,
     urlInstagram,
+    removerSpecials,
     handleRequest
 }

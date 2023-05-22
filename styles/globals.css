@@ -267,6 +267,9 @@ span.badge{color:var(--main-color)!important;font-size: medium; background-color
 .item-grid .infos .info-dormitorios > div::before { width: 18px;height: 12px;background: url('/svg/quartos.svg') no-repeat center center; }
 .item-grid .infos .info-banheiros > div::before { width: 18px;height: 12px;background: url('/svg/chuveito.svg') no-repeat center center; }
 .item-grid .infos .info-area > div::before { width: 14px;height: 14px;background: url('/svg/metragem.svg') no-repeat center center; }
+/* .item-grid .endereco  .info.info-place > div::before  { width: 15px;height: 20px;background: url('/svg/metragem.svg') no-repeat center center; } */
+/* .item-grid .endereco.place > div::before { position: absolute;top: 50%;left: 0;width: 15px; height: 20px; transform: translate(0px,-50%);background: url('/svg/place.svg') no-repeat center center; } */
+
 .item-grid .endereco { position: relative;padding: 0 0 0 25px; }
 .item-grid .endereco img { position: absolute;top: 50%;left: 0;width: 15px; height: 20px; transform: translate(0px,-50%); }
 .item-grid .color-primary { color: var(--active-color) }
