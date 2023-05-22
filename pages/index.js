@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Head from 'next/head';
 import Image from 'next/image'
-import {  moneyFormatter, cloudflareLoader, titleSite, urlFavicon, descriptionDefault, urlSite, removerSpecials } from '../utils';
+import {  moneyFormatter, cloudflareLoader, titleSite, urlFavicon, descriptionDefault, urlSite, removerSpecials,loaderImage } from '../utils';
 import Link from 'next/link';
 import CardBusca from '../components/cardBusca';
 
@@ -105,7 +105,7 @@ export default function Home({list}) {
                                   </div>
                                   
                                   <div className="endereco font-12 line-height-130 place">
-                                  <Image src="/svg/place.svg" loader={cloudflareLoader} width={72} height={16} alt="place"   />
+                                  <Image src="/svg/place.svg" loader={loaderImage} width={72} height={16} alt="place"   />
                                       {`${dest.bairro} | ${dest.cidade}/${dest.uf}`}
                                      
                                     
