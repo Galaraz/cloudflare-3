@@ -32,26 +32,35 @@ const customStyles = {
 export default function CardBusca(props){
     const router = useRouter();
     const queryInicial = router.query;
-    const { horizontal, finalidade,callbackclose } = props
+    const { horizontal, finalidade,callbackclose  } = props
     const [ loading, setLoading] = useState(false);
-    const [ formulario, setFormulario ] = useState({
-        finalidade: '',
-        tipo: '',
-        uf: '',
-        cidade: '',
-        bairro: '',
-        valorde: '',
-        valorate: ''
-    }); 
+    const [ formulario, setFormulario ] = useState(queryInicial ? queryInicial : {
+            finalidade: '',
+            tipo: '',
+            uf: '',
+            cidade: '',
+            bairro: '',
+            valorde: '',
+            valorate: ''
+        });  
+    // const [ formulario, setFormulario ] = useState({
+    //     finalidade: '',
+    //     tipo: '',
+    //     uf: '',
+    //     cidade: '',
+    //     bairro: '',
+    //     valorde: '',
+    //     valorate: ''
+    // });
+    const { valorde , valorate  } = queryInicial; 
+    
+    console.log(queryInicial);
     const [ finalidades, setFinalidades] = useState([]);
     const [ tiposImoveis, setTiposImoveis] = useState([]);
     const [ estados, setEstados ] = useState([]); 
     const [ cidades, setCidades ] = useState([]);        
     const [ bairros, setBairros ] = useState([]); 
-    const [ valores, setValores ] = useState({
-        valor_minimo : 0,
-        valor_maximo : 100
-    }); 
+    const [ valores, setValores ] = useState({ }); 
 
     const [ loadingValores, setLoadingValores ] = useState(false)
 
@@ -65,8 +74,14 @@ export default function CardBusca(props){
         getEstados()
         getCidades(queryInicial?.uf || '')
         getBairros(queryInicial?.cidade || '')
-        getValores(finalidade || queryInicial.finalidade || '')
-    },[queryInicial]) 
+       
+        getValores(finalidade || queryInicial?.finalidade || '')
+       
+        
+    },[queryInicial])
+    
+    
+
 
     const getFinalidades = async () => {
         const req = await handleRequest("finalidades", "")
@@ -77,7 +92,7 @@ export default function CardBusca(props){
         setLoadingValores(true)
         const req = await handleRequest("valores", [{ finalidade : id }])
         if(!req.valores) return
-        setValores({ valor_minimo : req.valores.valor_minimo || 0 , valor_maximo : req.valores.valor_maximo || 100 });
+        setValores({ valor_minimo : req.valores.valor_minimo , valor_maximo : req.valores.valor_maximo  });
         setFormulario({...formulario, ...{finalidade: id, valorde: req.valores.valor_minimo , valorate : req.valores.valor_maximo }});
         setLoadingValores(false)
     }
@@ -199,15 +214,15 @@ export default function CardBusca(props){
                         <label className="d-block font-12 pb-3 ms-2"><div className="imputValorDesejado react-select__control ">VALOR DESEJADO</div></label>
 
                         <div>
-
+                                {console.log(valores.valor_maximo,"valor maximo")}
                                 
                             <Range
 
                                 min={parseInt(valores.valor_minimo)}
                                 max={parseInt(valores.valor_maximo)}
                                 values={[ 
-                                    formulario.valorde  || 0,
-                                    formulario.valorate || 100, 
+                                    valorde  || formulario.valorde  || 0,
+                                    valorate || formulario.valorate || 0, 
                                 ]}
                                 allowCross={false}
                                 allowOverlap={true}

@@ -537,44 +537,6 @@ function handleShow(value) {
   )
 }
 
-// export async function getStaticPaths() {
-//   return {
-//     fallback: true,
-//     paths: [
-//       {
-//         params: { id: "411030" }
-//       }
-//     ]
-//   };
-// }
-
-// export async function getServerSideProps(context) {
- 
-//   const respId = context.params.id;
-//   const corpo = JSON.stringify({
-//     acoes: [
-//       { metodo: "dadosimovel", params: [{ registro: respId }] },
-//       { metodo: "destaques", params: [{ resultados: "4" }] }
-//     ],
-//     id: apiId
-//   });
-
-//   const resposta = await fetch(apiUrl, {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: corpo
-//   });
-
-//   const respostaText = await resposta.text();
-//   
-  
-//   const listImovel = JSON.parse(respostaText);
-//   return {
-//     props: listImovel
-//   };
-// }
-
-
 export async function getServerSideProps(context) {
 
   const { query } = context;
