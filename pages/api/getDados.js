@@ -1,5 +1,5 @@
-const apiId              = "328";
-const apiUrl             = "https://dev.infoimoveis.com.br/webservice/hotsites.php";
+ import { apiId,apiUrl } from '../../utils'           
+// const apiUrl             = "https://dev.infoimoveis.com.br/webservice/hotsites.php";
 
 export const config = {
     runtime: 'edge',
