@@ -8,7 +8,7 @@ import { Modal } from 'react-bootstrap';
 import ImageGallery from 'react-image-gallery';
 import { ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../../context';
-import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,existsOrError,IsEmail,isMobile,notify ,cloudflareLoader,scrollTopDist } from '../../../utils';
+import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,existsOrError,IsEmail,isMobile,notify ,cloudflareLoader,scrollTopDist,removerSpecials } from '../../../utils';
 
 export default function Imovel(props) {
      
