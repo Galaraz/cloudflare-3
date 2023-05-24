@@ -3,7 +3,7 @@ const nextConfig = {
 
   reactStrictMode: true,
  
-  experimental: {runtime:'experimental-edge'},
+
     swcMinify: true,
   images: {
     domains : ['https://static-dev.infoimoveis.com.br'],
