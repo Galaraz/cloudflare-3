@@ -41,9 +41,11 @@ export default function CardBusca(props){
             bairro: '',
             valorde: '',
             valorate: ''
-        });
- 
+        });  
+
+    const { valorde , valorate  } = queryInicial; 
     
+   
     const [ finalidades, setFinalidades] = useState([]);
     const [ tiposImoveis, setTiposImoveis] = useState([]);
     const [ estados, setEstados ] = useState([]); 
@@ -227,7 +229,8 @@ export default function CardBusca(props){
                         <label className="d-block font-12 pb-3 ms-2"><div className="imputValorDesejado react-select__control ">VALOR DESEJADO</div></label>
 
                         <div>
-                                                                
+                            
+                                
                             <Range
 
                                 min={parseInt( valores.valor_minimo )}

@@ -99,6 +99,7 @@ export default function Noticia(props) {
 
 export async function getServerSideProps(context) {
   const {query} = context;
+   
  
     const corpo = await JSON.stringify( {
       acoes: [                        

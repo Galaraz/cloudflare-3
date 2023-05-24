@@ -3,8 +3,7 @@ const nextConfig = {
 
   reactStrictMode: true,
  
-
-    swcMinify: true,
+  swcMinify: true,
   images: {
     domains : ['https://static-dev.infoimoveis.com.br'],
     dangerouslyAllowSVG: true,
