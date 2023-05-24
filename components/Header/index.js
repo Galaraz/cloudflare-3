@@ -3,6 +3,7 @@ import Link from 'next/link' ;
 import Modal from 'react-modal';
 import Image from 'next/image';
 import ActiveLink from '../ActiveLink';
+import ActiveLinkFooter from '../ActiveLink/ActiveLinkFooter';
 import {  scrollTopDist, headerFixed, urlImgs, loaderImage } from '../../utils';
 import {  verificarCreci } from '../../utils';
 import {  Button } from 'react-bootstrap';
@@ -269,7 +270,9 @@ const horariosEditados =  DiasSemana.map((diaSemana, index ) => {
             <nav className={`${isOpen ? 'show ' : ''}d-block d-md-none menu-topo-fixed`}>
 
             { loadingLink ?  
-                    <ActiveLink /> 
+                //   <ActiveLink />
+                    <ActiveLinkFooter openModal={() => openModal()} />
+                                      
                 :
                     ""
             }

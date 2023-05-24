@@ -28,8 +28,5 @@ export default async  function requisicoes (req,res) {
   } catch (error) {
      return new Response(JSON.stringify({erro:" erro na requisiçao"}));
   }
+}
  
-
-        
-
-} 
