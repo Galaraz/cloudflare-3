@@ -46,7 +46,7 @@ export default function CardBusca(props){
 
     const { valorde , valorate  } = queryInicial; 
     
-    console.log(queryInicial);
+   
     const [ finalidades, setFinalidades] = useState([]);
     const [ tiposImoveis, setTiposImoveis] = useState([]);
     const [ estados, setEstados ] = useState([]); 
@@ -206,7 +206,7 @@ export default function CardBusca(props){
                         <label className="d-block font-12 pb-3 ms-2"><div className="imputValorDesejado react-select__control ">VALOR DESEJADO</div></label>
 
                         <div>
-                                {console.log(valores.valor_maximo,"valor maximo")}
+                            
                                 
                             <Range
 
