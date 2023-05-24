@@ -270,8 +270,8 @@ const horariosEditados =  DiasSemana.map((diaSemana, index ) => {
             <nav className={`${isOpen ? 'show ' : ''}d-block d-md-none menu-topo-fixed`}>
 
             { loadingLink ?  
-               
-                    <ActiveLinkFooter openModal={() => openModal()} />
+               <ActiveLink />
+                    // <ActiveLinkFooter openModal={() => openModal()} />
                                       
                 :
                     ""
