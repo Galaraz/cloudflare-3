@@ -202,8 +202,6 @@ const loaderImage = ({ src, width, quality }) => {
     return `${normalizeSrc(src)}`;
 };
 
-
-
 async function handleRequest(metodo, params){
     try{
         let body = JSON.stringify({
