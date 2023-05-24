@@ -110,7 +110,7 @@ h6 { font-weight: bold; }
 
 footer { position: relative !important;width: 100%;z-index: 10;transition: transform .3s ease; }
 footer.open { transform: translate(-200px,0); }
-.footer-conteudo {cursor: pointer; color: #5e5e5e;margin: 0 15px; font-weight: bold; }
+.footer-container .footer-conteudo {cursor: pointer; color: #5e5e5e;margin: 0 15px; font-weight: bold; }
 a.footer-conteudo:hover { color: var(--btn-primary-color)!important; }
 .logo-rodape img { width: 200px; }
 .logo-rodape > a { margin: 0 !important; }
