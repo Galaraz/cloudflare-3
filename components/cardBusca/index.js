@@ -43,15 +43,7 @@ export default function CardBusca(props){
             valorde: '',
             valorate: ''
         });  
-    // const [ formulario, setFormulario ] = useState({
-    //     finalidade: '',
-    //     tipo: '',
-    //     uf: '',
-    //     cidade: '',
-    //     bairro: '',
-    //     valorde: '',
-    //     valorate: ''
-    // });
+
     const { valorde , valorate  } = queryInicial; 
     
     console.log(queryInicial);
