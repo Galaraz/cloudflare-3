@@ -2,10 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Range } from 'react-range';
 import Select from 'react-select';
 import { useRouter } from 'next/router';
-// import {AuthContext} from '../../context';
-
-import {  moneyFormatter, getValores, utils, handleRequest  } from '../../utils';
+import {  moneyFormatter, handleRequest  } from '../../utils';
 import Skeleton from '../skeleton';
+
 const customStyles = {
     
     menuPortal: provided => ({ ...provided, zIndex: 9999, fontSize: 14 }),
@@ -43,17 +42,7 @@ export default function CardBusca(props){
             valorde: '',
             valorate: ''
         });
-    // const [ formulario, setFormulario ] = useState({
-    //     finalidade: '',
-    //     tipo: '',
-    //     uf: '',
-    //     cidade: '',
-    //     bairro: '',
-    //     valorde: '',
-    //     valorate: ''
-    // });
-    // const { valorde , valorate  } = queryInicial; 
-    
+ 
     
     const [ finalidades, setFinalidades] = useState([]);
     const [ tiposImoveis, setTiposImoveis] = useState([]);
@@ -61,7 +50,6 @@ export default function CardBusca(props){
     const [ cidades, setCidades ] = useState([]);        
     const [ bairros, setBairros ] = useState([]); 
     const [ valores, setValores ] = useState({valor_minimo:"", valor_maximo:""}); 
-
     const [ loadingValores, setLoadingValores ] = useState(false)
 
     function mudarDadosFormulario(dados){

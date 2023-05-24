@@ -24,9 +24,7 @@ export default function AuthProvider({children}){
         setLoadingDados(true)
          const response =  await fetch(`${urlSite}api/getDados`);
         // const response =  await fetch(`api/getDados`);
-        
-        
-        const list = await response.json()
+         const list = await response.json()
         
         Object.keys(list).includes('anunciante') && setAnunciante(list.anunciante)
         Object.keys(list).includes('finalidades') && setFinalidades(list.finalidades.map( (item) => {return item.label} ))
