@@ -7,7 +7,6 @@ export const config = {
 
 export default async  function requisicoes(req, res)  {     
  
-  // res.setHeader('Access-Control-Allow-Origin', '*');
     const corpo = JSON.stringify( {
         acoes: [                        
             { metodo : "dadosanunciante" },		
@@ -30,6 +29,6 @@ export default async  function requisicoes(req, res)  {
 
     const list = await response.json()
 
-     return new Response(JSON.stringify(list));
+    return new Response(JSON.stringify(list));
 
 } 
