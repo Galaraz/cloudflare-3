@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Range } from 'react-range';
 import Select from 'react-select';
 import { useRouter } from 'next/router';
@@ -76,9 +76,7 @@ export default function CardBusca(props){
         
     }
     
-    
-
-
+ 
     const getFinalidades = async () => {
         const req = await handleRequest("finalidades", "")
         if(!req.finalidades) return
