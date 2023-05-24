@@ -65,8 +65,6 @@ export default function CardBusca(props){
     const [ loadingValores, setLoadingValores ] = useState(false)
 
     function mudarDadosFormulario(dados){
-        console.log(dados)
-        console.log({...formulario, ...dados})
         setFormulario({...formulario, ...dados});
     }
 
@@ -79,7 +77,7 @@ export default function CardBusca(props){
     },[queryInicial])
 
     function popularInputs() {
-        console.log(queryInicial, "query inicial");
+        
         setFormulario({...formulario,...queryInicial,  ...{ finalidade : finalidade || queryInicial.finalidade }})
         getFinalidades()
         getTiposImoveis()
