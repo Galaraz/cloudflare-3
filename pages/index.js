@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Head from 'next/head';
 import Image from 'next/image'
 import {  moneyFormatter, cloudflareLoader, titleSite, urlFavicon, descriptionDefault, urlSite, removerSpecials,loaderImage } from '../utils';
+import { apiId,apiUrl } from '../utils';
 import Link from 'next/link';
 import CardBusca from '../components/cardBusca';
 
@@ -155,10 +156,10 @@ export default function Home({list}) {
           { metodo: "destaques", params: [ { resultados: "4" }] },
           { metodo: "ultimasnoticias", params: [ { resultados: "4" }] },
           
-        ], id: 328
+        ], id: apiId
       }) 
   
-      const response = await fetch("https://dev.infoimoveis.com.br/webservice/hotsites.php",{
+      const response = await fetch(apiUrl,{
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: body
@@ -175,4 +176,4 @@ export default function Home({list}) {
       }
     } 
   }
-  export const config = { runtime: 'experimental-edge' }
+  export const config = { runtime: 'experimental-edge' };

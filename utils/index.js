@@ -1,6 +1,6 @@
 // const urlSite            = "https://cloudflare-3.pages.dev/";
-//dev 992 1442 3547
-const apiId              = "328";
+//dev 992 1442 3547 328
+const apiId              = "1442";
 const apiUrl             = "https://dev.infoimoveis.com.br/webservice/hotsites.php";
 const urlImgs            = "https://static-dev.infoimoveis.com.br";
 const urlSite            = "/";  
@@ -201,8 +201,6 @@ const cloudflareLoader = ({ src, width, quality }) => {
 const loaderImage = ({ src, width, quality }) => {
     return `${normalizeSrc(src)}`;
 };
-
-
 
 async function handleRequest(metodo, params){
     try{

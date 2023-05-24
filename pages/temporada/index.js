@@ -67,4 +67,4 @@ export async function getServerSideProps({ req, res, query }) {
       }
     } 
 }
-export const config = { runtime: 'experimental-edge' }
+export const config = { runtime: 'experimental-edge' };

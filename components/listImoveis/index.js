@@ -5,12 +5,10 @@ import Pagination from 'react-js-pagination';
 import ContentHeader from '../ContentHeader';
 import Place from '../../public/svg/place.svg';
 import CardBusca from '../cardBusca/';
-import { AuthContext } from '../../context';
 import { moneyFormatter, itensPorPagina, loaderImage,cloudflareLoader, handleRequest,removerSpecials  } from '../../utils';
-import { getValores, utils } from '../../utils';
 import { useRouter } from 'next/router';
 import Select from "react-select";
-import Skeleton from '../skeleton';
+
 
 export default function ListImoveis(props) {    
     const router = useRouter();

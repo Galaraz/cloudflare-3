@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import { existsOrError, urlFacebook, urlInstagram, urlImgs } from '../../utils';
 import { verificarCreci,loaderImage,cloudflareLoader } from '../../utils';
 import { AuthContext } from '../../context';
-import ActiveLink from '../ActiveLink/ActiveLinkFooter';
+import ActiveLinkFooter from '../ActiveLink/ActiveLinkFooter';
 
 const customStyles = {
     content: {
@@ -96,8 +96,8 @@ export default function Footer(props) {
 
                                 <div className="d-flex align-items-center flex-column mb-1 justify-content-between flex-grow-1">
                                     <div className="d-none d-xl-block">
-                                        <nav className="text-right">
-                                            <ActiveLink openModal={() => {openModal()}}/> 
+                                        <nav className="text-right ">
+                                            <ActiveLinkFooter openModal={() => {openModal()}} /> 
                                         </nav>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@ export default function Footer(props) {
                                 <div className="d-flex align-items-center justify-content-between">
                                     <div className="d-none d-xl-block">
                                         <nav className="text-right " style={{display: 'flex'  }}>
-                                            <ActiveLink openModal={() => openModal()}/> 
+                                            <ActiveLinkFooter openModal={() => openModal()} /> 
                                         </nav>
                                     </div>
                                 </div>

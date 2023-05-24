@@ -6,8 +6,7 @@ import { useRouter } from 'next/router';
  const  ActiveLink = (  ) => {
     const { pathname } = useRouter();
     const { finalidades } = useContext(AuthContext);
-    
-   
+           
     const navLink = [
 
       {

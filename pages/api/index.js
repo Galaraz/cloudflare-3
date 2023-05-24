@@ -6,7 +6,6 @@ export const config = {
 
 export default async  function requisicoes (req,res) {
 
-  // res.setHeader('Access-Control-Allow-Origin', '*');
   try {
 
     let body =  await req.text();
@@ -28,8 +27,5 @@ export default async  function requisicoes (req,res) {
   } catch (error) {
      return new Response(JSON.stringify({erro:" erro na requisiçao"}));
   }
+}
  
-
-        
-
-} 

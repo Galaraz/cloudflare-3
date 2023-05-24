@@ -8,8 +8,7 @@ import { verificarCreci } from '../../utils';
     const { openModal } = props;
     const { pathname } = useRouter();
     const { finalidades, anunciante, perfilcorretores  } = useContext(AuthContext);
-        
-   
+      
 
     const corretores = verificarCreci(anunciante.creci ).toUpperCase()
     
