@@ -1,6 +1,6 @@
 import ListImoveis from "../../components/listImoveis";
 import Head from "next/head";
-import { urlFavicon,descriptionDefault,titleSite,urlSite } from "../../utils";
+import { urlFavicon,descriptionDefault,titleSite,urlSite, apiId, apiUrl } from "../../utils";
 import { useRouter } from "next/router";
 
 
@@ -49,10 +49,10 @@ export async function getServerSideProps({ req, res, query }) {
       let body = JSON.stringify({
         acoes: [                        
           { metodo: "busca", params: [ { resultados: 12, ...query }] },
-        ], id: 328
+        ], id: apiId
       }) 
   
-      const response = await fetch("https://dev.infoimoveis.com.br/webservice/hotsites.php",{
+      const response = await fetch(apiUrl,{
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: body
