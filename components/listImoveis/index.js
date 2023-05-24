@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Pagination from 'react-js-pagination';
 import ContentHeader from '../ContentHeader';
 import Place from '../../public/svg/place.svg';
-import CardBusca from '../cardBusca/';
+import CardBusca from '../cardBusca';
 import { AuthContext } from '../../context';
 import { moneyFormatter, itensPorPagina, loaderImage,cloudflareLoader, handleRequest,removerSpecials  } from '../../utils';
 import { getValores, utils } from '../../utils';

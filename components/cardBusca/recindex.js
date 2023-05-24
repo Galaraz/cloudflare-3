@@ -2,9 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Range } from 'react-range';
 import Select from 'react-select';
 import { useRouter } from 'next/router';
-import {  moneyFormatter, handleRequest  } from '../../utils';
-import Skeleton from '../skeleton';
+import {AuthContext} from '../../context';
 
+import {  moneyFormatter, getValores, utils, handleRequest  } from '../../utils';
+import Skeleton from '../skeleton';
 const customStyles = {
     
     menuPortal: provided => ({ ...provided, zIndex: 9999, fontSize: 14 }),
@@ -33,7 +34,7 @@ export default function CardBusca(props){
     const queryInicial = router.query;
     const { horizontal, finalidade,callbackclose  } = props
     const [ loading, setLoading] = useState(false);
-    const [ formulario, setFormulario ] = useState( queryInicial ? queryInicial : {
+    const [ formulario, setFormulario ] = useState(queryInicial ? queryInicial : {
             finalidade: '',
             tipo: '',
             uf: '',
@@ -41,40 +42,43 @@ export default function CardBusca(props){
             bairro: '',
             valorde: '',
             valorate: ''
-        });
- 
+        });  
+    // const [ formulario, setFormulario ] = useState({
+    //     finalidade: '',
+    //     tipo: '',
+    //     uf: '',
+    //     cidade: '',
+    //     bairro: '',
+    //     valorde: '',
+    //     valorate: ''
+    // });
+    const { valorde , valorate  } = queryInicial; 
     
+    console.log(queryInicial);
     const [ finalidades, setFinalidades] = useState([]);
     const [ tiposImoveis, setTiposImoveis] = useState([]);
     const [ estados, setEstados ] = useState([]); 
     const [ cidades, setCidades ] = useState([]);        
     const [ bairros, setBairros ] = useState([]); 
-    const [ valores, setValores ] = useState({valor_minimo:"", valor_maximo:""}); 
+    const [ valores, setValores ] = useState({ }); 
+
     const [ loadingValores, setLoadingValores ] = useState(false)
 
     function mudarDadosFormulario(dados){
         setFormulario({...formulario, ...dados});
     }
-
     useEffect(() => {
-        popularInputs()
-    },[])
-
-    useEffect(() => {
-    popularInputs()
-    },[queryInicial])
-
-    function popularInputs() {
-        
         setFormulario({...formulario,...queryInicial,  ...{ finalidade : finalidade || queryInicial.finalidade }})
         getFinalidades()
         getTiposImoveis()
         getEstados()
         getCidades(queryInicial?.uf || '')
         getBairros(queryInicial?.cidade || '')
-        getValores(finalidade || queryInicial.finalidade,queryInicial.valorde ,queryInicial.valorate, queryInicial )    
+       
+        getValores(finalidade || queryInicial?.finalidade || '')
+       
         
-    }
+    },[queryInicial])
     
     
 
@@ -82,39 +86,39 @@ export default function CardBusca(props){
     const getFinalidades = async () => {
         const req = await handleRequest("finalidades", "")
         if(!req.finalidades) return
-        setFinalidades([...[{ value: '',label: 'FINALIDADE'}],...req.finalidades])
+        setFinalidades(req.finalidades)
     }
-    const getValores = async (id ="", valorde, valorate, form = {}) => {
+    const getValores = async (id = "1") => {
         setLoadingValores(true)
         const req = await handleRequest("valores", [{ finalidade : id }])
         if(!req.valores) return
         setValores({ valor_minimo : req.valores.valor_minimo , valor_maximo : req.valores.valor_maximo  });
-        setFormulario({...form,...{finalidade: id, valorde: valorde || req.valores.valor_minimo , valorate : valorate || req.valores.valor_maximo }});
+        setFormulario({...formulario, ...{finalidade: id, valorde: req.valores.valor_minimo , valorate : req.valores.valor_maximo }});
         setLoadingValores(false)
     }
 
     const getTiposImoveis = async () => {
         const req = await handleRequest("tipoimoveis", "")
         if(!req.tipoimoveis) return
-        setTiposImoveis([...[{ value: '',label: 'TIPO DO IMÓVEL'}],...req.tipoimoveis])
+        setTiposImoveis(req.tipoimoveis)
     }
 
     const getEstados = async () => {
           const req = await handleRequest("estados", "")
           if(!req.estados) return
-          setEstados([...[{ value: '',label: 'SELECIONE'}],...req.estados])
+          setEstados(req.estados)
     }
     const getCidades = async (id = "") => {
         const req = await handleRequest("cidades", [{ registro : id }])
         
         if(!req.cidades) return
-        setCidades([...[{ value: '',label: 'SELECIONE'}],...req.cidades])
+        setCidades(req.cidades)
     }
     const getBairros = async (id = "") => {
         const req = await handleRequest("bairros",  [{ registro : id }])
        
         if(!req.bairros) return
-        setBairros([...[{ value: '',label: 'SELECIONE'}],...req.bairros])
+        setBairros(req.bairros)
     }
 
     async function handleSubmit() {
@@ -137,20 +141,8 @@ export default function CardBusca(props){
                             value={finalidades.find(item => item.value == (formulario.finalidade))} 
                             placeholder="FINALIDADE" 
                             onChange={e => {
-                                mudarDadosFormulario({ 
-                                    finalidade : e.value, 
-                                    tipo: '',
-                                    uf: '',
-                                    cidade: '',
-                                    bairro: ''
-                                })
-                                getValores(e.value, null,null,{ 
-                                    finalidade : e.value, 
-                                    tipo: '',
-                                    uf: '',
-                                    cidade: '',
-                                    bairro: ''
-                                })
+                                mudarDadosFormulario({ finalidade : e.value })
+                                getValores(e.value)
                             }}  
                             options={finalidades} 
                             styles={customStyles} 
@@ -164,12 +156,7 @@ export default function CardBusca(props){
                             value={tiposImoveis.find(item => item.value == (formulario.tipo) )} 
                             placeholder="TIPO DO IMÓVEL" 
                             onChange={e => {
-                                mudarDadosFormulario({ 
-                                    tipo : e.value,
-                                    uf: '',
-                                    cidade: '',
-                                    bairro: ''
-                                })
+                                mudarDadosFormulario({ tipo : e.value })
                             }}  
                             options={tiposImoveis} 
                             styles={customStyles} 
@@ -181,7 +168,7 @@ export default function CardBusca(props){
                             className="select" 
                             classNamePrefix="react-select" 
                             placeholder="UF" 
-                            value={estados.find(item => item.value == (formulario.uf))} 
+                            value={estados.find(item => item.value == (formulario.uf) )} 
                             onChange={e => {
                                 mudarDadosFormulario({ uf : e.value })
                                 getCidades(e.value)
@@ -227,14 +214,15 @@ export default function CardBusca(props){
                         <label className="d-block font-12 pb-3 ms-2"><div className="imputValorDesejado react-select__control ">VALOR DESEJADO</div></label>
 
                         <div>
-                                                                
+                                {console.log(valores.valor_maximo,"valor maximo")}
+                                
                             <Range
 
-                                min={parseInt( valores.valor_minimo )}
-                                max={parseInt( valores.valor_maximo )}
+                                min={parseInt(valores.valor_minimo)}
+                                max={parseInt(valores.valor_maximo)}
                                 values={[ 
-                                     formulario.valorde || queryInicial.valorde  || 0,
-                                     formulario.valorate || queryInicial.valorate || 0, 
+                                    valorde  || formulario.valorde  || 0,
+                                    valorate || formulario.valorate || 0, 
                                 ]}
                                 allowCross={false}
                                 allowOverlap={true}
@@ -279,8 +267,8 @@ export default function CardBusca(props){
                                 : 
                                     (
                                         <>
-                                            <div>R$  {moneyFormatter( formulario.valorde  || 0)}</div>
-                                            <div>R$  {moneyFormatter( formulario.valorate || 0)}</div>
+                                            <div>R$  {moneyFormatter(formulario.valorde  || valores.valor_minimo || 0)}</div>
+                                            <div>R$  {moneyFormatter(formulario.valorate || valores.valor_maximo || 0)}</div>
                                         </>
                                     )
                                 }
