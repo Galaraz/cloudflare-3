@@ -491,7 +491,8 @@ function handleShow(value) {
                 { destaques.map(dest => (
                     
                     <div key={dest.id} className="col-12 col-md-6 col-xl-3 py-3 py-xl-0">
-                        <Link href={`/imovel/${dest.id}`} className="d-flex flex-column shadow h-100 item-grid" >                                
+                        
+                        <Link href={`/imovel/${removerSpecials(dest.finalidade)}-${removerSpecials(dest.tipo)}-${removerSpecials(dest.bairro)}/${dest.id}`} className="d-flex flex-column shadow h-100 item-grid" >                                
                             <div className="foto position-relative"><Image src={dest.imagem} loader={cloudflareLoader} width={300} height={50}  alt={dest.tipo} /></div>
                             <div className="d-flex flex-grow-1 flex-column px-3 py-3">
                                 
