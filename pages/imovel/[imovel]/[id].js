@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ContentHeader from '../../../components/ContentHeader';
 import { Modal } from 'react-bootstrap';
-import placeImg from '../../../public/svg/place.svg';
 import semImage from '../../../public/img/sm-foto.jpg';
 import ImageGallery from 'react-image-gallery';
 import { ToastContainer } from 'react-toastify';
@@ -193,7 +192,7 @@ function handleShow(value) {
             
             <meta name="description" content={dadosimovel.maisdescricao} />
             <meta name="og:site_name" property="og:site_name" content={titleSite} />
-            <meta name="og:url" property="og:url" content={`${urlSite}imovel/${idDinamico}`} />
+            <meta name="og:url" property="og:url" content={`${urlSite}imovel/${dadosEditados}/${dadosimovel.id}`} />
             <meta name="og:title" property="og:title" content={`${dadosimovel.titulo} | ${dadosimovel.tipo} | ${dadosimovel.finalidade} | Imóvel | ${ titleSite }`} />
             <meta name="og:description" property="og:description" content={dadosimovel.maisdescricao} />                             
             <meta name="og:image" property="og:image" content={images[0].original? `${urlImgs}/${images[0].original}` : semImage} />
@@ -262,7 +261,7 @@ function handleShow(value) {
 
                                 <div className="d-block  border-top border-bottom py-3 flex-column flex-md-row">
                                     <div className="endereco d-flex align-items-center flex-grow-1 pr-4 font-14 line-height-130">
-                                        <Image src={placeImg} loader={loaderImage} alt="place" width={100} height={100}/>
+                                        <Image src={'../../svg/place.svg'} loader={loaderImage} alt="place" width={100} height={100}/>
                                         {`${dadosimovel.endereco ? `${dadosimovel.endereco} - ` : '' }${dadosimovel.bairro} | ${dadosimovel.cidade}/${dadosimovel.uf}`}
                                     </div>
                                     { (dadosimovel.latitude && dadosimovel.longitude) && <button type="button" onClick={() => handleClickMap()} className="btn btn-secondary shadow-sm text-white font-13 px-4 py-2 m-0 mt-3 mt-md-0"><b>VER NO MAPA</b></button> }
