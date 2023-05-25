@@ -1,4 +1,5 @@
-const urlSite            = process.env.urlSite;
+
+const urlSite            = process.env.NEXT_PUBLIC_urlSite;
 //dev 992 1442 3547 328
 const apiId              = "328";
 const apiUrl             = "https://dev.infoimoveis.com.br/webservice/hotsites.php";
