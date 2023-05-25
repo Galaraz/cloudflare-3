@@ -1,9 +1,9 @@
 import React, { useState, useEffect,useContext } from 'react';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { Modal } from 'react-bootstrap';
-import {AuthContext} from '../../context';
-import Select from 'react-select';
-import { Range } from 'react-range';
+// import {AuthContext} from '../../context';
+// import Select from 'react-select';
+// import { Range } from 'react-range';
 
 import { loaderImage } from '../../utils';
 import Image from 'next/image';
@@ -14,10 +14,10 @@ import CardBusca from '../cardBusca';
 
 export default function ContentHeader(props) {
 
-    const router = useRouter();
+    // const router = useRouter();
     
     const [ show, setShow ] = useState(false);
-    const queryInicial = router.query;
+    // const queryInicial = router.query;
     const handleClose = () => setShow(false);
     const handleShow  = () => setShow(true);
   

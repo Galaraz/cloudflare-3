@@ -56,9 +56,9 @@ export default function CardBusca(props){
         setFormulario({...formulario, ...dados});
     }
 
-    useEffect(() => {
-        popularInputs()
-    },[])
+    // useEffect(() => {
+    //     popularInputs()
+    // },[])
 
     useEffect(() => {
     popularInputs()
