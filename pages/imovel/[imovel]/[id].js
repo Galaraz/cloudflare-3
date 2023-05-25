@@ -431,7 +431,7 @@ function handleShow(value) {
                         <>
                             <a href={tel.app !== '0' ? `https://api.whatsapp.com/send?l=pt-BR&amp;phone=55${tel.ddd}${tel.numero.replace('-','')}&text=Oi,%20vim%20pelo%20seu%20site!` : `tel:0${tel.ddd}${tel.numero.replace('-','')}`} key={index} className={`${tel.app !== '0' ? 'whats ' : ''}d-block border p-3 my-4`} rel="noopener noreferrer nofollow" target="_blank"><span style={{color:'#666'}}>{ `(${tel.ddd}) ${tel.numero}`}</span>
                             {tel.app !== '0' ?
-                                <Image src="/svg/whatsapp-verde.svg" alt="place" width={10} height={10} className="whatsappMobile"/>
+                                <Image src="../../svg/whatsapp-verde.svg" loader={loaderImage}  alt="place" width={10} height={10} className="whatsappMobile"/>
                              : ""
                              }
                             </a>
