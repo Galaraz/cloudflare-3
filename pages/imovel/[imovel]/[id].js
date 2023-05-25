@@ -21,6 +21,7 @@ export default function Imovel(props) {
     const [ showScrollTop, setShowScrollTop ] = useState(false);
     const [ showHeaderFixed, setShowHeaderFixed ] = useState(false);
 
+    const dadosEditados = `${removerSpecials(dadosimovel.finalidade)}-${removerSpecials(dadosimovel.tipo)}-${removerSpecials(dadosimovel.bairro)}`; 
      useEffect(() => {
         
         window.addEventListener('scroll', function() {
@@ -81,7 +82,7 @@ const [ formulario, setFormulario ] = useState({
     mensagem: '',
     imovel: dadosimovel.id,
     finalidade: dadosimovel.finalidade,
-    lnk_anuncio: `${urlSite}/imovel/${dadosimovel.id}`
+    lnk_anuncio: `${urlSite}/imovel/${dadosEditados}/${dadosimovel.id}`
 });
 
 
@@ -222,9 +223,9 @@ function handleShow(value) {
                         <div className="col-12 col-lg-7">
 
                             <div className="redes-sociais d-flex d-lg-none" style={{ justifyContent: 'flex-end' }}>
-                                <Link href={`https://www.facebook.com/sharer/sharer.php?u=${urlSite}/imovel/${dadosimovel.id}`} className="facebook mx-0" target="_blank" rel="noopener noreferrer nofollow">Facebook</Link>   
-                                <Link href={`https://twitter.com/intent/tweet?text=${urlSite}/imovel/${dadosimovel.id}`} className="instagram mx-1" target="_blank" rel="noopener noreferrer nofollow">Instagram</Link>
-                                <Link href={`https://api.whatsapp.com/send?text=${urlSite}/imovel/${dadosimovel.id}`} className="whatsapp mx-0" target="_blank" rel="noopener noreferrer follow">Whatsapp</Link>
+                                <Link href={`https://www.facebook.com/sharer/sharer.php?u=${urlSite}/imovel/${dadosEditados}/${dadosimovel.id}`} className="facebook mx-0" target="_blank" rel="noopener noreferrer nofollow">Facebook</Link>   
+                                <Link href={`https://twitter.com/intent/tweet?text=${urlSite}/imovel/${dadosEditados}/${dadosimovel.id}`} className="instagram mx-1" target="_blank" rel="noopener noreferrer nofollow">Instagram</Link>
+                                <Link href={`https://api.whatsapp.com/send?text=${urlSite}/imovel/${dadosEditados}/${dadosimovel.id}`} className="whatsapp mx-0" target="_blank" rel="noopener noreferrer follow">Whatsapp</Link>
                             </div>
                             
                             {
@@ -320,9 +321,9 @@ function handleShow(value) {
                             
                             <div className="pb-4 d-none d-lg-block">
                                 <div className="redes-sociais d-flex" style={{ }}>
-                                    <Link href={`https://www.facebook.com/sharer/sharer.php?u=${urlSite}imovel/${dadosimovel.id}`} className="facebook mx-0" target="_blank" rel="noopener noreferrer nofollow">Facebook</Link>   
-                                    <Link href={`https://twitter.com/intent/tweet?text=${urlSite}imovel/${dadosimovel.id}`} className="instagram mx-1" target="_blank" rel="noopener noreferrer nofollow">Instagram</Link>
-                                    <Link href={`https://api.whatsapp.com/send?text=${urlSite}imovel/${dadosimovel.id}`} className="whatsapp mx-0" target="_blank" rel="noopener noreferrer follow">Whatsapp</Link>
+                                    <Link href={`https://www.facebook.com/sharer/sharer.php?u=${urlSite}imovel/${dadosEditados}/${dadosimovel.id}`} className="facebook mx-0" target="_blank" rel="noopener noreferrer nofollow">Facebook</Link>   
+                                    <Link href={`https://twitter.com/intent/tweet?text=${urlSite}imovel/${dadosEditados}/${dadosimovel.id}`} className="instagram mx-1" target="_blank" rel="noopener noreferrer nofollow">Instagram</Link>
+                                    <Link href={`https://api.whatsapp.com/send?text=${urlSite}imovel/${dadosEditados}/${dadosimovel.id}`} className="whatsapp mx-0" target="_blank" rel="noopener noreferrer follow">Whatsapp</Link>
                                 </div>
 
                                 
