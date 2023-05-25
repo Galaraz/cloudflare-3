@@ -1,29 +1,16 @@
-import React, { useState, useEffect,useContext } from 'react';
-// import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-// import {AuthContext} from '../../context';
-// import Select from 'react-select';
-// import { Range } from 'react-range';
-
 import { loaderImage } from '../../utils';
 import Image from 'next/image';
-
 import CardBusca from '../cardBusca';
 
-
-
 export default function ContentHeader(props) {
-
-    // const router = useRouter();
     
     const [ show, setShow ] = useState(false);
-    // const queryInicial = router.query;
     const handleClose = () => setShow(false);
     const handleShow  = () => setShow(true);
   
     return (
-        
-
         <>
         
         <div className="content-header">        

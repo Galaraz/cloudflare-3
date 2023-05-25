@@ -133,7 +133,7 @@ export default function CardBusca(props){
                             className="select" 
                             classNamePrefix="react-select" 
                             value={finalidades.find(item => item.value == (formulario.finalidade))} 
-                            placeholder="FINALIDADE" 
+                            placeholder="TODAS AS FINALIDADES" 
                             onChange={e => {
                                 mudarDadosFormulario({ 
                                     finalidade : e.value, 
@@ -151,7 +151,8 @@ export default function CardBusca(props){
                                 })
                             }}  
                             options={finalidades} 
-                            styles={customStyles} 
+                            styles={customStyles}
+                            
                         />
                     </div>
 
@@ -184,7 +185,8 @@ export default function CardBusca(props){
                                 mudarDadosFormulario({ uf : e.value })
                                 getCidades(e.value)
                             }}  
-                            options={estados} 
+                            options={estados}
+                            noOptionsMessage={() => 'UF'} 
                             styles={customStyles} 
                         />
                     </div>
@@ -200,7 +202,7 @@ export default function CardBusca(props){
                                 getBairros(e.value)
                             }}  
                             options={cidades} 
-                            noOptionsMessage={() => 'Selecione'}
+                            noOptionsMessage={() => 'CIDADE'}
                             styles={customStyles} 
                         />
                     </div>
@@ -216,7 +218,7 @@ export default function CardBusca(props){
                             }}  
                             options={bairros} 
                             styles={customStyles}  
-                            noOptionsMessage={() => 'Selecione' } 
+                            noOptionsMessage={() => 'BAIRRO' } 
                         />
                     </div>
 
