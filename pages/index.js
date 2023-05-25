@@ -27,7 +27,7 @@ export default function Home({list}) {
             <link rel="icon" type="image/png" sizes="96x96" href={ `${urlFavicon}favicon-96x96.png`} />
             <link rel="icon" type="image/png" sizes="16x16" href={ `${urlFavicon}favicon-16x16.png`} />
             <link rel="manifest" href={ `${urlFavicon}manifest.json`} />
-            <meta property="og:image" content={ `${urlFavicon}ms-icon-144x144.png`} />
+            <meta property="og:image" content="/img/compartilhamento.jpg" />
             <meta name="msapplication-TileColor" content="#ffffff" />
             <meta name="msapplication-TileImage" content={ `${urlFavicon}ms-icon-144x144.png`} />
             <meta name="theme-color" content="#ffffff" />
