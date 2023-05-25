@@ -4,13 +4,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ContentHeader from '../../../components/ContentHeader';
 import { Modal } from 'react-bootstrap';
-
 import placeImg from '../../../public/svg/place.svg';
-
+import semImage from '../../../public/img/sm-foto.jpg';
 import ImageGallery from 'react-image-gallery';
 import { ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../../context';
-import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,existsOrError,IsEmail,isMobile,notify ,cloudflareLoader,scrollTopDist,removerSpecials,loaderImage } from '../../../utils';
+import { 
+    apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,existsOrError,
+    IsEmail,isMobile,notify ,cloudflareLoader,scrollTopDist,removerSpecials,loaderImage 
+} from '../../../utils';
 
 export default function Imovel(props) {
      
@@ -188,13 +190,12 @@ function handleShow(value) {
             <meta name="msapplication-TileImage" content={ `${urlFavicon}ms-icon-144x144.png` } />
             <meta name="theme-color" content="#ffffff" />
             <meta property="og:type" content="website" />
-            
             <meta name="description" content={dadosimovel.maisdescricao} />
             <meta name="og:site_name" property="og:site_name" content={titleSite} />
             <meta name="og:url" property="og:url" content={`${urlSite}imovel/${idDinamico}`} />
             <meta name="og:title" property="og:title" content={`${dadosimovel.titulo} | ${dadosimovel.tipo} | ${dadosimovel.finalidade} | Imóvel | ${ titleSite }`} />
             <meta name="og:description" property="og:description" content={dadosimovel.maisdescricao} />                             
-            <meta name="og:image" property="og:image" content={`${urlImgs}/${images[0].original}`} />
+            <meta name="og:image" property="og:image" content={images[0].original? `${urlImgs}/${images[0].original}` : semImage } />
             <meta name="og:image:width" property="og:image:width" content="640" />
             <meta name="og:image:height" property="og:image:height" content="480" />
             <title>{ Object.keys(dadosimovel).length > 0 ? `${dadosimovel.titulo} | ${dadosimovel.tipo} | ${dadosimovel.finalidade} | Imóvel | ${titleSite} ` : `${titleSite}`}</title>
