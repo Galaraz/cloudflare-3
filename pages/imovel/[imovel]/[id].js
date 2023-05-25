@@ -190,12 +190,13 @@ function handleShow(value) {
             <meta name="msapplication-TileImage" content={ `${urlFavicon}ms-icon-144x144.png` } />
             <meta name="theme-color" content="#ffffff" />
             <meta property="og:type" content="website" />
+            
             <meta name="description" content={dadosimovel.maisdescricao} />
             <meta name="og:site_name" property="og:site_name" content={titleSite} />
             <meta name="og:url" property="og:url" content={`${urlSite}imovel/${idDinamico}`} />
             <meta name="og:title" property="og:title" content={`${dadosimovel.titulo} | ${dadosimovel.tipo} | ${dadosimovel.finalidade} | Imóvel | ${ titleSite }`} />
             <meta name="og:description" property="og:description" content={dadosimovel.maisdescricao} />                             
-            <meta name="og:image" property="og:image" content={images[0].original? `${urlImgs}/${images[0].original}` : semImage } />
+            <meta name="og:image" property="og:image" content={images[0].original? `${urlImgs}/${images[0].original}` : semImage} />
             <meta name="og:image:width" property="og:image:width" content="640" />
             <meta name="og:image:height" property="og:image:height" content="480" />
             <title>{ Object.keys(dadosimovel).length > 0 ? `${dadosimovel.titulo} | ${dadosimovel.tipo} | ${dadosimovel.finalidade} | Imóvel | ${titleSite} ` : `${titleSite}`}</title>
@@ -347,7 +348,7 @@ function handleShow(value) {
                             
                                 <div className="d-block border-top border-bottom py-3">
                                     <div className="endereco d-flex align-items-center flex-grow-1 pr-4 font-14 line-height-130">
-                                        <Image src={placeImg} loader={loaderImage} alt="place" width={100} height={100}/>
+                                        <Image src={'../../svg/place.svg'} loader={loaderImage} alt="place" width={100} height={100}/>
                                         {`${dadosimovel.endereco ? `${dadosimovel.endereco} - ` : '' }${dadosimovel.bairro} | ${dadosimovel.cidade}/${dadosimovel.uf}`}
                                     </div>
                                     { (dadosimovel.latitude && dadosimovel.longitude) && <button type="button" onClick={() => handleClickMap()} className="btn btn-secondary shadow-sm w-50 text-white font-13 px-0 py-2  botao-ver-mapa"><b>VER NO MAPA</b></button> }
@@ -517,7 +518,7 @@ function handleShow(value) {
                                 </div>
                                 
                                 <div className="endereco font-12 line-height-130">
-                                    <Image src={placeImg} loader={loaderImage}  width={72} height={16} alt="place"  />
+                                    <Image src={'../../svg/place.svg'} loader={loaderImage}  width={72} height={16} alt="place"  />
                                     {`${dest.bairro} | ${dest.cidade}/${dest.uf}`}
                                 </div>
                                 

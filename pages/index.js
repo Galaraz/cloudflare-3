@@ -9,7 +9,7 @@ import CardBusca from '../components/cardBusca';
 export default function Home({list}) {
     const { destaques, ultimasnoticias  } = list
     const isOpen = false
-   console.log(urlSite)
+  
       return (
         <>
           <Head>

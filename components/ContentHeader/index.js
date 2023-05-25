@@ -31,7 +31,7 @@ export default function ContentHeader(props) {
         
                 <h1 className="font-20 font-md-28 text-center text-md-left m-0 text-white">{props.title}</h1> 
                 <button onClick={handleShow} className={`p-1 m-0 bg-transparent botaoLupa border-0${' d-block d-md-none' }`}  >
-                    <Image src="/svg/search.svg" loader={loaderImage} width={30} height={30} alt="busca" />
+                    <Image src="../../svg/search.svg" loader={loaderImage} width={30} height={30} alt="busca" />
                 </button>
             </div>                
         </div>
