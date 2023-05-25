@@ -10,7 +10,7 @@ import placeImg from '../../../public/svg/place.svg';
 import ImageGallery from 'react-image-gallery';
 import { ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../../context';
-import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,existsOrError,IsEmail,isMobile,notify ,cloudflareLoader,scrollTopDist,removerSpecials } from '../../../utils';
+import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,existsOrError,IsEmail,isMobile,notify ,cloudflareLoader,scrollTopDist,removerSpecials,loaderImage } from '../../../utils';
 
 export default function Imovel(props) {
      
@@ -86,11 +86,6 @@ const [ formulario, setFormulario ] = useState({
     finalidade: dadosimovel.finalidade,
     lnk_anuncio: `${urlSite}/imovel/${dadosEditados}/${dadosimovel.id}`
 });
-
-
-
-
-
 
 const [ validate, setValidate ] = useState({ validateName: true,validateEmail: true,validateTel: true,validateCity: true,validateUf: true,validateMensage: true });
 
@@ -265,7 +260,7 @@ function handleShow(value) {
 
                                 <div className="d-block  border-top border-bottom py-3 flex-column flex-md-row">
                                     <div className="endereco d-flex align-items-center flex-grow-1 pr-4 font-14 line-height-130">
-                                        <Image src={placeImg} alt="place" width={100} height={100}/>
+                                        <Image src={placeImg} loader={loaderImage} alt="place" width={100} height={100}/>
                                         {`${dadosimovel.endereco ? `${dadosimovel.endereco} - ` : '' }${dadosimovel.bairro} | ${dadosimovel.cidade}/${dadosimovel.uf}`}
                                     </div>
                                     { (dadosimovel.latitude && dadosimovel.longitude) && <button type="button" onClick={() => handleClickMap()} className="btn btn-secondary shadow-sm text-white font-13 px-4 py-2 m-0 mt-3 mt-md-0"><b>VER NO MAPA</b></button> }
@@ -351,7 +346,7 @@ function handleShow(value) {
                             
                                 <div className="d-block border-top border-bottom py-3">
                                     <div className="endereco d-flex align-items-center flex-grow-1 pr-4 font-14 line-height-130">
-                                        <Image src={placeImg} alt="place" width={100} height={100}/>
+                                        <Image src={placeImg} loader={loaderImage} alt="place" width={100} height={100}/>
                                         {`${dadosimovel.endereco ? `${dadosimovel.endereco} - ` : '' }${dadosimovel.bairro} | ${dadosimovel.cidade}/${dadosimovel.uf}`}
                                     </div>
                                     { (dadosimovel.latitude && dadosimovel.longitude) && <button type="button" onClick={() => handleClickMap()} className="btn btn-secondary shadow-sm w-50 text-white font-13 px-0 py-2  botao-ver-mapa"><b>VER NO MAPA</b></button> }
@@ -521,7 +516,7 @@ function handleShow(value) {
                                 </div>
                                 
                                 <div className="endereco font-12 line-height-130">
-                                    <Image src={placeImg}  width={72} height={16} alt="place"  />
+                                    <Image src={placeImg} loader={loaderImage}  width={72} height={16} alt="place"  />
                                     {`${dest.bairro} | ${dest.cidade}/${dest.uf}`}
                                 </div>
                                 
