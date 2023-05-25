@@ -197,7 +197,7 @@ function handleShow(value) {
             <meta name="og:url" property="og:url" content={`${urlSite}imovel/${idDinamico}`} />
             <meta name="og:title" property="og:title" content={`${dadosimovel.titulo} | ${dadosimovel.tipo} | ${dadosimovel.finalidade} | Imóvel | ${ titleSite }`} />
             <meta name="og:description" property="og:description" content={dadosimovel.maisdescricao} />                             
-            <meta name="og:image" property="og:image" content={`${urlImgs}/${destaques}`} />
+            <meta name="og:image" property="og:image" content={`${urlImgs}/${images[0].original}`} />
             <meta name="og:image:width" property="og:image:width" content="640" />
             <meta name="og:image:height" property="og:image:height" content="480" />
             <title>{ Object.keys(dadosimovel).length > 0 ? `${dadosimovel.titulo} | ${dadosimovel.tipo} | ${dadosimovel.finalidade} | Imóvel | ${titleSite} ` : `${titleSite}`}</title>
@@ -223,9 +223,9 @@ function handleShow(value) {
                         <div className="col-12 col-lg-7">
 
                             <div className="redes-sociais d-flex d-lg-none" style={{ justifyContent: 'flex-end' }}>
-                                <Link href={`https://www.facebook.com/sharer/sharer.php?u=${urlSite}/imovel/${dadosEditados}/${dadosimovel.id}`} className="facebook mx-0" target="_blank" rel="noopener noreferrer nofollow">Facebook</Link>   
-                                <Link href={`https://twitter.com/intent/tweet?text=${urlSite}/imovel/${dadosEditados}/${dadosimovel.id}`} className="instagram mx-1" target="_blank" rel="noopener noreferrer nofollow">Instagram</Link>
-                                <Link href={`https://api.whatsapp.com/send?text=${urlSite}/imovel/${dadosEditados}/${dadosimovel.id}`} className="whatsapp mx-0" target="_blank" rel="noopener noreferrer follow">Whatsapp</Link>
+                                <Link href={`https://www.facebook.com/sharer/sharer.php?u=${urlSite}imovel/${dadosEditados}/${dadosimovel.id}`} className="facebook mx-0" target="_blank" rel="noopener noreferrer nofollow">Facebook</Link>   
+                                <Link href={`https://twitter.com/intent/tweet?text=${urlSite}imovel/${dadosEditados}/${dadosimovel.id}`} className="instagram mx-1" target="_blank" rel="noopener noreferrer nofollow">Instagram</Link>
+                                <Link href={`https://api.whatsapp.com/send?text=${urlSite}imovel/${dadosEditados}/${dadosimovel.id}`} className="whatsapp mx-0" target="_blank" rel="noopener noreferrer follow">Whatsapp</Link>
                             </div>
                             
                             {
