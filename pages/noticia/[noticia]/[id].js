@@ -98,9 +98,7 @@ export default function Noticia(props) {
 
 export async function getServerSideProps(context) {
   const {query} = context;
-   
-  console.log(context)
- 
+    
     const corpo = await JSON.stringify( {
       acoes: [                        
         { metodo: "noticia", params:  [{ registro: query.id }] },

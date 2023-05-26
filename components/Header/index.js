@@ -57,7 +57,7 @@ export default function Header(props) {
     const [ modalIsOpen, setIsOpen] = useState(false);
     const [ modalIsOpenHorarios, setIsOpenHorarios] = useState(false);
     const [ loading, setLoading ] = useState(true);
-    const [loadingLink] = useState(true);
+    const [ loadingLink ] = useState(true);
     
     const {horariosAtendimento} = anunciante;
 
@@ -66,6 +66,7 @@ export default function Header(props) {
         setIsOpen(true);
         setOpen(false)
         setLoading(false);
+            
          
      }
 
@@ -77,6 +78,7 @@ export default function Header(props) {
      function closeModal() {
         setIsOpen(false);
      }
+
      function closeModalHorarios() {
         setIsOpenHorarios(false);
      }
@@ -150,16 +152,18 @@ const horariosEditados =  DiasSemana.map((diaSemana, index ) => {
                 setShowHeaderFixed(false);
                 handleOpenMenu('close');
                 
+                
             }                
         });
         
     },[])
-
   
    
     function handleOpenMenu(close) {
+        
         const show = close ? false : !isOpen;
         setOpen(show)
+        
     }
 
     return (
@@ -271,7 +275,8 @@ const horariosEditados =  DiasSemana.map((diaSemana, index ) => {
             <nav className={`${isOpen ? 'show ' : ''}d-block d-md-none menu-topo-fixed`}>
 
             { loadingLink ?  
-                    <ActiveLinkFooter openModal={() => openModal()} /> 
+                    <ActiveLinkFooter openModal={() => openModal()} handlerOpenMenu={() => handleOpenMenu()} />
+
                 :
                     ""
             }

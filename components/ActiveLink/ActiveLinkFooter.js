@@ -5,11 +5,10 @@ import { useRouter } from 'next/router';
 import { verificarCreci } from '../../utils';
 
  const  ActiveLinkFooter = (props) => {
-    const { openModal } = props;
+    const { openModal ,handlerOpenMenu } = props;
     const { pathname } = useRouter();
     const { finalidades, anunciante, perfilcorretores  } = useContext(AuthContext);
-        
-   
+ 
 
     const corretores = verificarCreci(anunciante.creci ).toUpperCase()
     
@@ -64,14 +63,17 @@ import { verificarCreci } from '../../utils';
       { navLink.map(({link,name,enable }) =>  {
         if (!enable)  return null
      
-              
+             console.log(name , corretores) 
+             console.log(name === corretores )
         return(
- 
+         
             <Link
               key={name}
               href={link}
               className={`${pathname === link ? "active-link" : ""} footer-conteudo`}
-              onClick={() => {name === corretores && openModal ? openModal() : null}}
+              onClick={() => {name === corretores && openModal ? openModal() : handlerOpenMenu()}}
+          
+              
             >
               {name}
             </Link>

@@ -203,8 +203,7 @@ function handleShow(value) {
 
          <div className="main"> 
             <ContentHeader title="Imóvel"  />
-         
-        
+               
             <div className="container visualizacao px-4 px-sm-0">        
                 
               
