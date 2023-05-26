@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import ContentHeade from '../../../components/ContentHeader';
-import { apiUrl,  apiId, urlImgs, urlSite, titleSite, urlFavicon,cloudflareLoader } from '../../../utils';
+import { apiUrl,  apiId, urlImgs, urlSite, titleSite, urlFavicon,cloudflareLoader,removerSpecials,loaderImage } from '../../../utils';
+import Link from 'next/link';
 
 export default function Noticia(props) {    
 
@@ -43,7 +44,7 @@ export default function Noticia(props) {
 
                 <meta name="description" content={noticia.resumo} />
                 <meta name="og:site_name" property="og:site_name" content={titleSite} />
-                <meta name="og:url" property="og:url" content={`${urlSite}/noticia/${noticia.id}`} />
+                <meta name="og:url" property="og:url" content={`${urlSite}/noticia/${removerSpecials(noticia.titulo)}/${noticia.id}`} />
                 <meta name="og:title" property="og:title" content={noticia.titulo} />
                 <meta name="og:description" property="og:description" content={noticia.resumo} />                             
                 <meta name="og:image" property="og:image" content={`${urlImgs}/${noticia.imagem}`} />
@@ -76,18 +77,16 @@ export default function Noticia(props) {
                             <div>
                                 <div className="redes-sociais d-flex align-items-center justify-content-end py-2 mb-3">
                                     <span className="font-11 font-italic mr-2">Compartilhar:</span>
-                                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${urlSite}/noticia/${noticia.id}`} className="facebook mx-0" target="_blank" rel="noopener noreferrer nofollow">Facebook</a>   
-                                    <a href={`https://twitter.com/intent/tweet?text=${urlSite}/noticia/${noticia.id}`} className="instagram mx-1" target="_blank" rel="noopener noreferrer nofollow">Instagram</a>
-                                    <a href={`https://api.whatsapp.com/send?text=${urlSite}/noticia/${noticia.id}`} className="whatsapp mx-0" target="_blank" rel="noopener noreferrer nofollow">Whatsapp</a>
+                                    <Link href={`https://www.facebook.com/sharer/sharer.php?u=${urlSite}noticia/${removerSpecials(noticia.titulo)}/${noticia.id}`} className="facebook mx-0" target="_blank" rel="noopener noreferrer nofollow">Facebook</Link>   
+                                    <Link href={`https://twitter.com/intent/tweet?text=${urlSite}noticia/${removerSpecials(noticia.titulo)}/${noticia.id}`} className="instagram mx-1" target="_blank" rel="noopener noreferrer nofollow">Instagram</Link>
+                                    <Link href={`https://api.whatsapp.com/send?text=${urlSite}noticia/${removerSpecials(noticia.titulo)}/${noticia.id}`} className="whatsapp mx-0" target="_blank" rel="noopener noreferrer nofollow">Whatsapp</Link>
                                 </div>
                                 <div className="texto" dangerouslySetInnerHTML={{__html: noticia.texto}}></div>                         
                             </div>
 
                         </div>
                         </>
-              
-
-                </div>    
+                 </div>    
 
             </div>            
                 
